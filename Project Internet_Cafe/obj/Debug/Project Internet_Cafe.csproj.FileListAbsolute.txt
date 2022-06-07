@@ -1,0 +1,26 @@
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\Project Internet_Cafe.exe.config
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\Project Internet_Cafe.exe
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\Project Internet_Cafe.pdb
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.AssemblyReference.cache
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.SuggestedBindingRedirects.cache
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.Properties.Resources.resources
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.GenerateResource.cache
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.CoreCompileInputs.cache
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.exe
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.pdb
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\MySql.Data.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\Google.Protobuf.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\ZstdNet.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\K4os.Compression.LZ4.Streams.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\BouncyCastle.Crypto.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\Ubiety.Dns.Core.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\System.Memory.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\System.Buffers.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\K4os.Compression.LZ4.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\K4os.Hash.xxHash.dll
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\bin\Debug\MySql.Data.xml
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.exe.config
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.CopyComplete
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.loginForm.resources
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.memberForm.resources
+G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.computerForm.resources

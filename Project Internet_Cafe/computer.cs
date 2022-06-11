@@ -16,14 +16,15 @@ namespace Project_Internet_Cafe
     {
         loginForm loginWin = new loginForm();
         MySqlConnection conn = loginForm.databaseConnection();
-        // double price = 15; // per hour
+        public static double price = 15; // per hour
+        public static double point = 1; // per hour
 
         public computerForm()
         {
             InitializeComponent();
         }
 
-        private void showComputer()
+        private void showComputer(DataGridView data)
         {
             MySqlConnection conn = loginForm.databaseConnection();
             DataSet ds = new DataSet();
@@ -38,12 +39,13 @@ namespace Project_Internet_Cafe
 
             conn.Close();
 
-            computerData.DataSource = ds.Tables[0].DefaultView;
+            data.DataSource = ds.Tables[0].DefaultView;
         }
 
         private void adminForm_Load(object sender, EventArgs e)
         {
-            showComputer();
+            showComputer(computerData);
+            cellColorChange();
             revokeUser();
         }
 
@@ -53,11 +55,18 @@ namespace Project_Internet_Cafe
             foreach (string i in id)
             {
                 int numberID = Convert.ToInt32(i);
-                if (checkTimeout(numberID) == true)
+                if (checkTimeout(numberID) == true && getTime(numberID)[0] != "0")
                 {
-                    MySqlConnection conn = loginForm.databaseConnection();
+                    int ticketID = Convert.ToInt32(getTime(numberID)[0]);
+                    string sql2 = $"UPDATE ticket SET remaining = '00:00:00' WHERE id = '{ticketID}'";
+                    MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
+                    conn.Open();
+                    int rows2 = cmd2.ExecuteNonQuery();
+                    conn.Close();
 
-                    string sql = $"UPDATE computer SET available = 'Yes', ticket_id = '0' WHERE id = '{numberID}'";
+
+                    DateTime date = DateTime.Now;
+                    string sql = $"UPDATE computer SET available = 'Yes', ticket_id = '0', start_time = '{date}' WHERE id = '{numberID}'";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     conn.Open();
@@ -68,7 +77,8 @@ namespace Project_Internet_Cafe
 
                     if (rows > 0)
                     {
-                        showComputer();
+                        showComputer(computerData);
+                        cellColorChange();
                     }
                 }
             }
@@ -113,27 +123,39 @@ namespace Project_Internet_Cafe
 
         private bool checkTimeout(int id)
         {
-            DateTime endTime = Convert.ToDateTime(getTime(id)[1]);
-            Console.WriteLine(endTime);
+            DateTime TimeRemain = Convert.ToDateTime(getTime(id)[3]);
+            DateTime startTime = Convert.ToDateTime(getTime(id)[1]);
             DateTime dateNow = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
-            TimeSpan remaining = endTime.Subtract(dateNow);
+            TimeSpan timeUsed = dateNow.Subtract(startTime);
+            int timeTicketCon = TimeRemain.Hour;
+            DateTime timeUsedCon = dateNow.Date + timeUsed;
+            TimeSpan remaining = TimeRemain.Subtract(timeUsedCon);
 
-            bool isTimeout = false;
-
-            if (remaining.TotalSeconds > 0)
+            if (remaining.TotalSeconds <= 0)
             {
-                isTimeout = false;
-            } else
-            {
-                isTimeout = true;
-            } 
+                return true;
+            }
 
-            return isTimeout;
+            return false;
         }
-
-        private string getName(int id)
+        private void cellColorChange()
         {
-            string sql1 = "SELECT user FROM computer WHERE id = '"+id+"'";
+            for (int i = 0; i < computerData.RowCount; i++)
+            {
+                if (computerData.Rows[i].Cells["available"].FormattedValue.ToString() == "Yes")
+                {
+                    computerData.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                }
+                else if (computerData.Rows[i].Cells["available"].FormattedValue.ToString() == "No")
+                {
+                    computerData.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+        public static string getName(int id)
+        {
+            MySqlConnection conn = loginForm.databaseConnection();
+            string sql1 = "SELECT user FROM ticket WHERE id = '"+id+"'";
             MySqlCommand cmd = new MySqlCommand(sql1, conn);
             conn.Open();
 
@@ -170,50 +192,55 @@ namespace Project_Internet_Cafe
         {
             string[] dateTime = { };
 
-            string sql1 = "SELECT ticket_id FROM computer WHERE id = '" + id + "'";
+            string sql1 = "SELECT ticket_id, start_time FROM computer WHERE id = '" + id + "'";
             MySqlCommand cmd = new MySqlCommand(sql1, conn);
             conn.Open();
 
             MySqlDataReader reader = cmd.ExecuteReader();
             string ticketID = "";
+            string startTime = "";
 
             while (reader.Read())
             {
                 ticketID = reader.GetString("ticket_id");
+                if (ticketID != "0")
+                {
+                    startTime = reader.GetString("start_time");
+                }
             }
 
             conn.Close();
 
             if (Convert.ToInt32(ticketID) != 0)
             {
-                string sql2 = "SELECT start_time,end_time FROM ticket WHERE id = '" + ticketID + "'";
+                string sql2 = "SELECT time,remaining remaining FROM ticket WHERE id = '" + ticketID + "'";
                 cmd = new MySqlCommand(sql2, conn);
                 conn.Open();
 
                 reader = cmd.ExecuteReader();
-                string startTime = "";
-                string endTime = "";
+                string time = "";
+                string remaining = "";
                 while (reader.Read())
                 {
-                    startTime = reader.GetString("start_time");
-                    endTime = reader.GetString("end_time");
+                    time = reader.GetString("time");
+                    remaining = reader.GetString("remaining");
                 }
 
                 conn.Close();
 
-                dateTime = new string[] { startTime, endTime };
+                DateTime timeConverted = Convert.ToDateTime(time);
+                dateTime = new string[] { ticketID, startTime, timeConverted.ToString("HH:mm:ss"), remaining };
             } else
             {
-                string startTime = "00:00:00";
-                string endTime = "00:00:00";
-                dateTime = new string[] { startTime, endTime };
+                DateTime dateNow = DateTime.Now;
+                dateTime = new string[] { ticketID, dateNow.ToString(), "00:00:00", "00:00:00" };
             }
+            conn.Close();
             return dateTime;
         }
 
-        private void computerData_Click(object sender, DataGridViewCellEventArgs e)
+        private void showData()
         {
-            resetBox();
             computerData.CurrentRow.Selected = true;
             int selectedRow = computerData.CurrentCell.RowIndex;
             int computerID = Convert.ToInt32(computerData.Rows[selectedRow].Cells["id"].FormattedValue.ToString());
@@ -222,46 +249,46 @@ namespace Project_Internet_Cafe
             if (checkAvailable == "No")
             {
                 availableText.Text = "ไม่ว่าง";
-                userText.Text = getName(computerID);
-                startTimeText.Text = getTime(computerID)[0];
-                endTimeText.Text = getTime(computerID)[1];
-                DateTime startTime = Convert.ToDateTime(getTime(computerID)[0]);
-                DateTime endTime = Convert.ToDateTime(getTime(computerID)[1]);
-                TimeSpan time = endTime.Subtract(startTime);
-                hourText.Text = time.ToString();
+                int ticketID = Convert.ToInt32(getTime(computerID)[0]);
+                userText.Text = $"[{ticketID}] " + getName(ticketID);
+                startTimeText.Text = getTime(computerID)[1];
+                DateTime timeTicket = Convert.ToDateTime(getTime(computerID)[2]);
+                DateTime timeRemaining = Convert.ToDateTime(getTime(computerID)[3]);
+                DateTime startTime = Convert.ToDateTime(getTime(computerID)[1]);
                 DateTime dateNow = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
-                TimeSpan remaining = endTime.Subtract(dateNow);
+                TimeSpan timeUsed = dateNow.Subtract(startTime);
+                endTimeText.Text = Convert.ToDateTime(getTime(computerID)[1]).AddHours(timeRemaining.Hour).AddMinutes(timeRemaining.Minute).AddSeconds(timeRemaining.Second).ToString();
+                hourText.Text = getTime(computerID)[2].ToString();
+                DateTime timeUsedCon = dateNow.Date + timeUsed;
+                TimeSpan remaining = timeRemaining.Subtract(timeUsedCon);
                 if (remaining.TotalSeconds > 0)
                 {
                     remainText.Text = remaining.ToString();
-                } else
+                }
+                else
                 {
                     remainText.Text = "00:00:00";
                 }
-            } else if (checkAvailable == "Yes")
+            }
+            else if (checkAvailable == "Yes")
             {
                 availableText.Text = "ว่าง";
             }
+        } 
+
+        private void computerData_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            resetBox();
+            showData();
+            revokeUser();
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showComputer();
-            int selectedRow = computerData.CurrentCell.RowIndex;
-            int selectedID = Convert.ToInt32(computerData.Rows[selectedRow].Cells["id"].Value);
-            DateTime endTime = Convert.ToDateTime(getTime(selectedID)[1]);
-            DateTime dateNow = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
-            TimeSpan remaining = endTime.Subtract(dateNow);
-            remainText.Text = remaining.ToString();
-            if (remaining.TotalSeconds > 0)
-            {
-                remainText.Text = remaining.ToString();
-            }
-            else
-            {
-                remainText.Text = "00:00:00";
-            }
-
+            showComputer(computerData);
+            cellColorChange();
+            resetBox();
+            showData();
             revokeUser();
         }
 
@@ -270,6 +297,19 @@ namespace Project_Internet_Cafe
             memberForm memberForm = new memberForm();
             memberForm.Show();
             this.Close();
+        }
+
+        private void ticketBuyClick(object sender, EventArgs e)
+        {
+            ticket buyTicketForm = new ticket();
+            buyTicketForm.Show();
+            this.Hide();
+        }
+
+        private void ticketHistoryClick(object sender, EventArgs e)
+        {
+            ticketHistory tHistory = new ticketHistory();
+            tHistory.Show();
         }
     }
 }

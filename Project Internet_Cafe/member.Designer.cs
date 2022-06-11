@@ -32,6 +32,8 @@
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบประวตการซอตวToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ซอตวToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ประวตการซอToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ออกจากโปรแกรมToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberData = new System.Windows.Forms.DataGridView();
@@ -41,15 +43,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.phoneText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.passwordText = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.pointText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.sNameText = new System.Windows.Forms.TextBox();
             this.addMemberButton = new System.Windows.Forms.Button();
             this.editMemberButton = new System.Windows.Forms.Button();
             this.deleteMemberButton = new System.Windows.Forms.Button();
-            this.showPasswordBox = new System.Windows.Forms.CheckBox();
+            this.clearButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memberData)).BeginInit();
             this.SuspendLayout();
@@ -78,20 +78,37 @@
             // ตรวจสอบคอมพวเตอรToolStripMenuItem
             // 
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Name = "ตรวจสอบคอมพวเตอรToolStripMenuItem";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "ตรวจสอบคอมพิวเตอร์";
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Click += new System.EventHandler(this.computerCheckToolStripMenuItem_Click);
             // 
             // ตรวจสอบประวตการซอตวToolStripMenuItem
             // 
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ซอตวToolStripMenuItem,
+            this.ประวตการซอToolStripMenuItem1});
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Name = "ตรวจสอบประวตการซอตวToolStripMenuItem";
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตรวจสอบประวัติการซื้อตั๋ว";
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตั๋วชั่วโมง";
+            // 
+            // ซอตวToolStripMenuItem
+            // 
+            this.ซอตวToolStripMenuItem.Name = "ซอตวToolStripMenuItem";
+            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ซอตวToolStripMenuItem.Text = "ซื้อตั๋ว";
+            this.ซอตวToolStripMenuItem.Click += new System.EventHandler(this.ticketBuyToolStripMenuItem_Click);
+            // 
+            // ประวตการซอToolStripMenuItem1
+            // 
+            this.ประวตการซอToolStripMenuItem1.Name = "ประวตการซอToolStripMenuItem1";
+            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการซอToolStripMenuItem1.Text = "ประวัติการซื้อ";
+            this.ประวตการซอToolStripMenuItem1.Click += new System.EventHandler(this.ticketHistoryClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem
             // 
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -112,7 +129,7 @@
             this.memberData.Name = "memberData";
             this.memberData.ReadOnly = true;
             this.memberData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.memberData.Size = new System.Drawing.Size(389, 434);
+            this.memberData.Size = new System.Drawing.Size(389, 338);
             this.memberData.TabIndex = 1;
             this.memberData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberCellClick);
             // 
@@ -138,7 +155,7 @@
             // fNameText
             // 
             this.fNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.fNameText.Location = new System.Drawing.Point(421, 114);
+            this.fNameText.Location = new System.Drawing.Point(421, 108);
             this.fNameText.Name = "fNameText";
             this.fNameText.Size = new System.Drawing.Size(156, 26);
             this.fNameText.TabIndex = 5;
@@ -156,7 +173,7 @@
             // phoneText
             // 
             this.phoneText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.phoneText.Location = new System.Drawing.Point(421, 177);
+            this.phoneText.Location = new System.Drawing.Point(421, 164);
             this.phoneText.Name = "phoneText";
             this.phoneText.Size = new System.Drawing.Size(322, 26);
             this.phoneText.TabIndex = 7;
@@ -165,35 +182,16 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.Location = new System.Drawing.Point(417, 154);
+            this.label3.Location = new System.Drawing.Point(417, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "เบอร์โทรศัพท์ :";
             // 
-            // passwordText
-            // 
-            this.passwordText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.passwordText.Location = new System.Drawing.Point(421, 241);
-            this.passwordText.Name = "passwordText";
-            this.passwordText.Size = new System.Drawing.Size(322, 26);
-            this.passwordText.TabIndex = 9;
-            this.passwordText.UseSystemPasswordChar = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label4.Location = new System.Drawing.Point(417, 218);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "รหัสผ่าน :";
-            // 
             // pointText
             // 
             this.pointText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.pointText.Location = new System.Drawing.Point(490, 305);
+            this.pointText.Location = new System.Drawing.Point(491, 209);
             this.pointText.Name = "pointText";
             this.pointText.Size = new System.Drawing.Size(253, 26);
             this.pointText.TabIndex = 11;
@@ -202,7 +200,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.Location = new System.Drawing.Point(417, 308);
+            this.label5.Location = new System.Drawing.Point(418, 212);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 20);
             this.label5.TabIndex = 10;
@@ -211,7 +209,7 @@
             // sNameText
             // 
             this.sNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.sNameText.Location = new System.Drawing.Point(587, 114);
+            this.sNameText.Location = new System.Drawing.Point(587, 108);
             this.sNameText.Name = "sNameText";
             this.sNameText.Size = new System.Drawing.Size(156, 26);
             this.sNameText.TabIndex = 12;
@@ -220,7 +218,7 @@
             // 
             this.addMemberButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.addMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.addMemberButton.Location = new System.Drawing.Point(443, 351);
+            this.addMemberButton.Location = new System.Drawing.Point(444, 255);
             this.addMemberButton.Name = "addMemberButton";
             this.addMemberButton.Size = new System.Drawing.Size(112, 50);
             this.addMemberButton.TabIndex = 13;
@@ -232,7 +230,7 @@
             // 
             this.editMemberButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.editMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.editMemberButton.Location = new System.Drawing.Point(608, 351);
+            this.editMemberButton.Location = new System.Drawing.Point(444, 316);
             this.editMemberButton.Name = "editMemberButton";
             this.editMemberButton.Size = new System.Drawing.Size(112, 50);
             this.editMemberButton.TabIndex = 14;
@@ -244,7 +242,7 @@
             // 
             this.deleteMemberButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.deleteMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.deleteMemberButton.Location = new System.Drawing.Point(524, 413);
+            this.deleteMemberButton.Location = new System.Drawing.Point(609, 316);
             this.deleteMemberButton.Name = "deleteMemberButton";
             this.deleteMemberButton.Size = new System.Drawing.Size(112, 50);
             this.deleteMemberButton.TabIndex = 15;
@@ -252,31 +250,30 @@
             this.deleteMemberButton.UseVisualStyleBackColor = false;
             this.deleteMemberButton.Click += new System.EventHandler(this.deleteMemberButtonClick);
             // 
-            // showPasswordBox
+            // clearButton
             // 
-            this.showPasswordBox.AutoSize = true;
-            this.showPasswordBox.Location = new System.Drawing.Point(421, 273);
-            this.showPasswordBox.Name = "showPasswordBox";
-            this.showPasswordBox.Size = new System.Drawing.Size(91, 17);
-            this.showPasswordBox.TabIndex = 16;
-            this.showPasswordBox.Text = "แสดงรหัสผ่าน";
-            this.showPasswordBox.UseVisualStyleBackColor = true;
-            this.showPasswordBox.CheckStateChanged += new System.EventHandler(this.showPasswordStateChange);
+            this.clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.clearButton.Location = new System.Drawing.Point(609, 255);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(112, 50);
+            this.clearButton.TabIndex = 17;
+            this.clearButton.Text = "ล้างข้อมูล";
+            this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // memberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 474);
-            this.Controls.Add(this.showPasswordBox);
+            this.ClientSize = new System.Drawing.Size(755, 377);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.deleteMemberButton);
             this.Controls.Add(this.editMemberButton);
             this.Controls.Add(this.addMemberButton);
             this.Controls.Add(this.sNameText);
             this.Controls.Add(this.pointText);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.passwordText);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.phoneText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.fNameText);
@@ -312,14 +309,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox phoneText;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox passwordText;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox pointText;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox sNameText;
         private System.Windows.Forms.Button addMemberButton;
         private System.Windows.Forms.Button editMemberButton;
         private System.Windows.Forms.Button deleteMemberButton;
-        private System.Windows.Forms.CheckBox showPasswordBox;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.ToolStripMenuItem ซอตวToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ประวตการซอToolStripMenuItem1;
     }
 }

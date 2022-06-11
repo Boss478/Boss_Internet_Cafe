@@ -32,6 +32,8 @@
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบสมาชกToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบประวตการซอตวToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ซอตวToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ประวตการซอToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ออกจากโปรแกรมToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computerData = new System.Windows.Forms.DataGridView();
@@ -78,20 +80,37 @@
             // ตรวจสอบสมาชกToolStripMenuItem
             // 
             this.ตรวจสอบสมาชกToolStripMenuItem.Name = "ตรวจสอบสมาชกToolStripMenuItem";
-            this.ตรวจสอบสมาชกToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.ตรวจสอบสมาชกToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ตรวจสอบสมาชกToolStripMenuItem.Text = "สมาชิก";
             this.ตรวจสอบสมาชกToolStripMenuItem.Click += new System.EventHandler(this.registerToolStripMenuItem_Click);
             // 
             // ตรวจสอบประวตการซอตวToolStripMenuItem
             // 
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ซอตวToolStripMenuItem,
+            this.ประวตการซอToolStripMenuItem1});
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Name = "ตรวจสอบประวตการซอตวToolStripMenuItem";
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตรวจสอบประวัติการซื้อตั๋ว";
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตั๋วชั่วโมง";
+            // 
+            // ซอตวToolStripMenuItem
+            // 
+            this.ซอตวToolStripMenuItem.Name = "ซอตวToolStripMenuItem";
+            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ซอตวToolStripMenuItem.Text = "ซื้อตั๋ว";
+            this.ซอตวToolStripMenuItem.Click += new System.EventHandler(this.ticketBuyClick);
+            // 
+            // ประวตการซอToolStripMenuItem1
+            // 
+            this.ประวตการซอToolStripMenuItem1.Name = "ประวตการซอToolStripMenuItem1";
+            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการซอToolStripMenuItem1.Text = "ประวัติการซื้อ";
+            this.ประวตการซอToolStripMenuItem1.Click += new System.EventHandler(this.ticketHistoryClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem
             // 
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem.Click += new System.EventHandler(this.exitProgramClick);
             // 
@@ -203,7 +222,7 @@
             // hourText
             // 
             this.hourText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.hourText.Location = new System.Drawing.Point(347, 238);
+            this.hourText.Location = new System.Drawing.Point(361, 238);
             this.hourText.Name = "hourText";
             this.hourText.ReadOnly = true;
             this.hourText.Size = new System.Drawing.Size(98, 26);
@@ -215,15 +234,15 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label5.Location = new System.Drawing.Point(275, 241);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 20);
+            this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 11;
-            this.label5.Text = "คิดเป็น :";
+            this.label5.Text = "ระยะเวลา :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label6.Location = new System.Drawing.Point(451, 241);
+            this.label6.Location = new System.Drawing.Point(465, 241);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 20);
             this.label6.TabIndex = 13;
@@ -233,7 +252,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label7.Location = new System.Drawing.Point(287, 273);
+            this.label7.Location = new System.Drawing.Point(305, 276);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 20);
             this.label7.TabIndex = 14;
@@ -242,7 +261,7 @@
             // remainText
             // 
             this.remainText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.remainText.Location = new System.Drawing.Point(347, 273);
+            this.remainText.Location = new System.Drawing.Point(361, 273);
             this.remainText.Name = "remainText";
             this.remainText.ReadOnly = true;
             this.remainText.Size = new System.Drawing.Size(98, 26);
@@ -252,7 +271,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.Location = new System.Drawing.Point(451, 276);
+            this.label9.Location = new System.Drawing.Point(465, 276);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 20);
             this.label9.TabIndex = 18;
@@ -316,5 +335,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox remainText;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem ซอตวToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ประวตการซอToolStripMenuItem1;
     }
 }

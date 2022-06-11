@@ -16,6 +16,9 @@ namespace Project_Internet_Cafe
         public loginForm()
         {
             InitializeComponent();
+
+            MySqlConnection conn = databaseConnection();
+            conn.Close();
         }
 
         public static MySqlConnection databaseConnection()
@@ -33,23 +36,16 @@ namespace Project_Internet_Cafe
             string username = "admin";
             string password = "1234";
 
-            if (getUsername == username)
+            if (getUsername == username && getPassword == password)
             {
-                if (getPassword == password)
-                {
-                    MessageBox.Show("เข้าสู่ระบบเรียบร้อย", "Succeed");
-                    this.Hide();
-                    computerForm adminWin = new computerForm();
-                    adminWin.Show();
-                } else
-                {
-                    MessageBox.Show("รหัสผ่านไม่ถูกต้อง", "Error");
-                    passwordText.Text = "";
-                }
-            } else
+                MessageBox.Show("เข้าสู่ระบบเรียบร้อย", "Succeed");
+                this.Hide();
+                computerForm adminWin = new computerForm();
+                adminWin.Show();
+            }
+            else
             {
-                MessageBox.Show("ไม่พบผู้ใช้", "Error");
-                usernameText.Text = "";
+                MessageBox.Show("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง", "Error");
                 passwordText.Text = "";
             }
 

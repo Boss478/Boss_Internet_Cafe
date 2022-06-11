@@ -36,6 +36,38 @@ namespace Project_Internet_Cafe
             memberData.DataSource = ds.Tables[0].DefaultView;
         }
 
+        private bool checkAlpha(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return false;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (!(char.IsLetter(str[i])) || (char.IsNumber(str[i])))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool checkNumeric(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return false;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if ((char.IsNumber(str[i])))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void memberForm_Load(object sender, EventArgs e)
         {
             showMember();
@@ -75,21 +107,16 @@ namespace Project_Internet_Cafe
                 allPhone.Add(reader.GetString("phone"));
             }
 
-            bool isDuplicate = false;
-
             foreach (string i in allPhone)
             {
                 if (i == phone)
                 {
-                    isDuplicate = true;
-                } else
-                {
-                    isDuplicate = false;
+                    return true;
                 }
             }
 
             conn.Close();
-            return isDuplicate;
+            return false;
         }
 
         private bool checkID(int id)
@@ -107,22 +134,17 @@ namespace Project_Internet_Cafe
                 allID.Add(reader.GetString("id"));
             }
 
-            bool isAvailable = false;
 
             foreach (string i in allID)
             {
                 if (i == id.ToString())
                 {
-                    isAvailable = true;
-                }
-                else
-                {
-                    isAvailable = false;
+                    return true;
                 }
             }
 
             conn.Close();
-            return isAvailable;
+            return false;
         }
 
         private void memberCellClick(object sender, DataGridViewCellEventArgs e)
@@ -135,19 +157,8 @@ namespace Project_Internet_Cafe
             sNameText.Text = memberData.Rows[selectedRow].Cells["sName"].FormattedValue.ToString();
             phoneText.Text = memberData.Rows[selectedRow].Cells["phone"].FormattedValue.ToString();
             pointText.Text = memberData.Rows[selectedRow].Cells["point"].FormattedValue.ToString();
-            passwordText.Text = getPassword(memberID).ToString();
         }
 
-        private void showPasswordStateChange(object sender, EventArgs e)
-        {
-            if (showPasswordBox.Checked == true)
-            {
-                passwordText.UseSystemPasswordChar = false;
-            } else
-            {
-                passwordText.UseSystemPasswordChar = true;
-            }
-        }
 
         private void addMemberButton_Click(object sender, EventArgs e)
         {
@@ -156,20 +167,32 @@ namespace Project_Internet_Cafe
             {
                 string fname = fNameText.Text;
                 string sname = sNameText.Text;
-                string password = passwordText.Text;
-                MySqlConnection conn = loginForm.databaseConnection();
-                string sql = $"INSERT INTO member (fname,sname,phone,password,point) VALUES ('{fname}','{sname}','{phone}','{password}','0')";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
 
-                int rows = cmd.ExecuteNonQuery();
-
-                conn.Close();
-
-                if (rows > 0)
+                if (checkAlpha(fname) && checkAlpha(sname))
                 {
-                    MessageBox.Show("เพิ่มข้อมูลสมาชิกสำเร็จ", "Succeed");
-                    showMember();
+                    if (checkNumeric(phone) && phone.Length == 10)
+                    {
+                        MySqlConnection conn = loginForm.databaseConnection();
+                        string sql = $"INSERT INTO member (fname,sname,phone,point) VALUES ('{fname}','{sname}','{phone}','0')";
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        conn.Open();
+
+                        int rows = cmd.ExecuteNonQuery();
+
+                        conn.Close();
+
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("เพิ่มข้อมูลสมาชิกสำเร็จ", "Succeed");
+                            showMember();
+                        }
+                    } else
+                    {
+                        MessageBox.Show("เบอร์โทรศัพท์ไม่ถูกต้อง\n(ต้องเป็นตัวเลข 10 ตัวเท่านั้น)", "ERROR");
+                    }
+                } else
+                {
+                    MessageBox.Show("ชื่อ-สกุล ต้องเป็นตัวอักษรเท่านั้น", "ERROR");
                 }
             } else
             {
@@ -184,27 +207,40 @@ namespace Project_Internet_Cafe
             {
                 string fName = fNameText.Text;
                 string sName = sNameText.Text;
-                string password = passwordText.Text;
                 int point = Convert.ToInt32(pointText.Text);
-
-                MySqlConnection conn = loginForm.databaseConnection();
-
-                string sql = $"UPDATE member SET fname = '{fName}', sname = '{sName}', password = '{password}', point = '{point}' WHERE id = '{id}'";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                int rows = cmd.ExecuteNonQuery();
-
-                conn.Close();
-
-                if (rows > 0)
+                string phone = phoneText.Text;
+                if (checkAlpha(fName) && checkAlpha(sName))
                 {
-                 MessageBox.Show($"แก้ไขข้อมูลสมาชิก ID: {id} - {fName} เรียบร้อยแล้ว", "Succeed");
-                 showMember();
-                }
+                    if (checkNumeric(phone) && phone.Length == 10)
+                    {
+                        MySqlConnection conn = loginForm.databaseConnection();
 
+                        string sql = $"UPDATE member SET fname = '{fName}', sname = '{sName}', point = '{point}' WHERE id = '{id}'";
+
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        conn.Open();
+
+                        int rows = cmd.ExecuteNonQuery();
+
+                        conn.Close();
+
+                        if (rows > 0)
+                        {
+                            MessageBox.Show($"แก้ไขข้อมูลสมาชิก ID: {id} - {fName} เรียบร้อยแล้ว", "Succeed");
+                            showMember();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("เบอร์โทรศัพท์ไม่ถูกต้อง\n(ต้องเป็นตัวเลข 10 ตัวเท่านั้น)", "ERROR");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ชื่อ-สกุล ต้องเป็นตัวอักษรเท่านั้น", "ERROR");
+                }
             }
+
         }
 
         private void computerCheckToolStripMenuItem_Click(object sender, EventArgs e)
@@ -253,6 +289,29 @@ namespace Project_Internet_Cafe
                 }
 
             }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            memberData.CurrentRow.Selected = false;
+            memberIDText.Text = "";
+            fNameText.Text = "";
+            sNameText.Text = "";
+            phoneText.Text = "";
+            pointText.Text = "";
+        }
+
+        private void ticketBuyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ticket buyTicketForm = new ticket();
+            buyTicketForm.Show();
+            this.Hide();
+        }
+
+        private void ticketHistoryClick(object sender, EventArgs e)
+        {
+            ticketHistory tHistory = new ticketHistory();
+            tHistory.Show();
         }
     }
 }

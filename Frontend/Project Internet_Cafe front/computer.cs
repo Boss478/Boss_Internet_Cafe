@@ -41,7 +41,7 @@ namespace Project_Internet_Cafe_front
         private string getRemainingTime()
         {
             DateTime dateNow = Convert.ToDateTime(DateTime.Now);
-            DateTime startTime = Convert.ToDateTime(getTime()[0]);
+            DateTime startTime = Convert.ToDateTime(ticketCheck.dateGlobal);
             DateTime timeRemaining = Convert.ToDateTime(getTime()[2]); ;
             TimeSpan timeUsed = dateNow.Subtract(startTime);
             DateTime timeUsedCon = dateNow.Date + timeUsed;
@@ -54,7 +54,7 @@ namespace Project_Internet_Cafe_front
 
         private string getEndTime(string startTime)
         {
-            DateTime start = Convert.ToDateTime(startTime);
+            DateTime start = Convert.ToDateTime(startTime.ToString());
             DateTime timeRemaining = Convert.ToDateTime(getRemainingTimeTicket(ticketCheck.ticketID));
             string endTime = Convert.ToDateTime(start).AddHours(timeRemaining.Hour).AddMinutes(timeRemaining.Minute).AddSeconds(timeRemaining.Second).ToString("HH:mm:ss");
             return endTime;
@@ -62,7 +62,7 @@ namespace Project_Internet_Cafe_front
 
         private string[] getTime() // [0 start time, 1 time ticket, 2 remaining]
         {
-            string sql1 = "SELECT ticket_id, start_time FROM computer WHERE id = '" + loginForm.computerGlobal + "'";
+            string sql1 = "SELECT start_time FROM computer WHERE id = '" + loginForm.computerGlobal + "'";
             MySqlCommand cmd = new MySqlCommand(sql1, conn);
             conn.Open();
 
@@ -70,11 +70,10 @@ namespace Project_Internet_Cafe_front
 
             MySqlDataReader reader = cmd.ExecuteReader();
             string startTime = "";
-            int ticketID = 0;
+            int ticketID = ticketCheck.ticketID;
 
             while (reader.Read())
             {
-                ticketID = reader.GetInt32("ticket_id");
                 startTime = reader.GetString("start_time");
             }
 
@@ -93,8 +92,9 @@ namespace Project_Internet_Cafe_front
                 remaining = reader.GetString("remaining");
             }
 
-                conn.Close();
+            conn.Close();
 
+           
             dateTime = new string[] { startTime.ToString(), time.ToString(), remaining.ToString() };
             
             return dateTime;
@@ -102,8 +102,9 @@ namespace Project_Internet_Cafe_front
 
         private void computer_Load(object sender, EventArgs e)
         {
-            string start = DateTime.Now.ToString("HH:mm:ss");
-            string end = getEndTime(getTime()[1]);
+            Console.WriteLine(ticketCheck.dateGlobal);
+            string start = Convert.ToDateTime(ticketCheck.dateGlobal).ToString("HH:mm:ss");
+            string end = getEndTime(ticketCheck.dateGlobal);
             startTime.Text = start;
             endTime.Text = end;
             remainText.Text = getRemainingTimeTicket(ticketCheck.ticketID);
@@ -112,7 +113,7 @@ namespace Project_Internet_Cafe_front
         private bool checkTimeout()
         {
             DateTime TimeRemain = Convert.ToDateTime(getTime()[2]);
-            DateTime startTime = Convert.ToDateTime(getTime()[0]);
+            DateTime startTime = Convert.ToDateTime(ticketCheck.dateGlobal);
             DateTime dateNow = DateTime.Now;
             TimeSpan timeUsed = dateNow.Subtract(startTime);
             int timeTicketCon = TimeRemain.Hour;
@@ -138,7 +139,7 @@ namespace Project_Internet_Cafe_front
             else
             {
                 DateTime dateNow = Convert.ToDateTime(DateTime.Now);
-                DateTime startTime = Convert.ToDateTime(getTime()[0]);
+                DateTime startTime = Convert.ToDateTime(ticketCheck.dateGlobal);
                 DateTime timeRemaining = Convert.ToDateTime(getTime()[2]); ;
                 TimeSpan timeUsed = dateNow.Subtract(startTime);
                 DateTime timeUsedCon = dateNow.Date + timeUsed;
@@ -154,7 +155,7 @@ namespace Project_Internet_Cafe_front
             conn.Close();
 
 
-            DateTime date = DateTime.Now;
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string sql = $"UPDATE computer SET available = '1', ticket_id = '0', start_time = '{date}' WHERE id = '{loginForm.computerGlobal}'";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -186,10 +187,6 @@ namespace Project_Internet_Cafe_front
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string start = Convert.ToDateTime(getTime()[0]).ToString("HH:mm:ss");
-            string end = getEndTime(start);
-            startTime.Text = start;
-            endTime.Text = end;
             remainText.Text = getRemainingTime();
         }
     }

@@ -15,6 +15,7 @@ namespace Project_Internet_Cafe_front
     {
         MySqlConnection conn = loginForm.databaseConnection();
         public static int ticketID = 0;
+        public static string dateGlobal = "00:00:00";
 
         public ticketCheck()
         {
@@ -63,21 +64,29 @@ namespace Project_Internet_Cafe_front
             ticketID = Convert.ToInt32(ticketDataView.Rows[selectedRow].Cells["id"].FormattedValue.ToString());
             string remainTime = ticketDataView.Rows[selectedRow].Cells["remaining"].FormattedValue.ToString();
 
-            computer computerForm = new computer();
-            computerForm.Show();
-            this.Hide();
-
-            setComputerUnavailable(ticketID);
+            ticketCheck.dateGlobal = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            if (IDText.Text != null && remainText.Text != null)
+            {
+                computer computerForm = new computer();
+                computerForm.Show();
+                this.Hide();
+                setComputerUnavailable(ticketID);
+            } else
+            {
+                MessageBox.Show("กรุณาเลือกตั๋วของคุณ", "ERROR");
+            }
         }
 
         private void ticketDataCellClick(object sender, DataGridViewCellEventArgs e)
         {
             ticketDataView.CurrentRow.Selected = true;
             int selectedRow = ticketDataView.CurrentCell.RowIndex;
-            int ticketID = Convert.ToInt32(ticketDataView.Rows[selectedRow].Cells["id"].FormattedValue.ToString());
+            int ticketIDClick = Convert.ToInt32(ticketDataView.Rows[selectedRow].Cells["id"].FormattedValue.ToString());
             string remainTime = ticketDataView.Rows[selectedRow].Cells["remaining"].FormattedValue.ToString();
 
-            IDText.Text = ticketID.ToString();
+            ticketID = ticketIDClick;
+
+            IDText.Text = ticketIDClick.ToString();
             remainText.Text = remainTime;
 
         }

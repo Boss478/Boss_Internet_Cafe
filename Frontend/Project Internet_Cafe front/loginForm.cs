@@ -136,12 +136,19 @@ namespace Project_Internet_Cafe_front
             {
                 if (checkPassword(username, password) == true)
                 {
-                    MessageBox.Show("เข้าสู่ระบบสำเร็จ", "Succeed");
-                    phoneGlobal = username;
-                    computerGlobal = Convert.ToInt32(computerID);
-                    ticketCheck ticket = new ticketCheck();
-                    ticket.Show();
-                    this.Hide();
+                    if (username.Contains("guest"))
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("เข้าสู่ระบบสำเร็จ", "Succeed");
+                        phoneGlobal = username;
+                        computerGlobal = Convert.ToInt32(computerID);
+                        ticketCheck ticket = new ticketCheck();
+                        ticket.Show();
+                        this.Hide();
+                    }
                 } else
                 {
                     MessageBox.Show("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง", "ERROR");

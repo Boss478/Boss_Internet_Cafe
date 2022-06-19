@@ -251,19 +251,21 @@ namespace Project_Internet_Cafe
                 availableText.Text = "ไม่ว่าง";
                 int ticketID = Convert.ToInt32(getTime(computerID)[0]);
                 userText.Text = $"[{ticketID}] " + getName(ticketID);
-                startTimeText.Text = getTime(computerID)[1];
+                startTimeText.Text = Convert.ToDateTime(getTime(computerID)[1]).ToString("HH:mm:ss");
                 DateTime timeTicket = Convert.ToDateTime(getTime(computerID)[2]);
                 DateTime timeRemaining = Convert.ToDateTime(getTime(computerID)[3]);
                 DateTime startTime = Convert.ToDateTime(getTime(computerID)[1]);
                 DateTime dateNow = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
                 TimeSpan timeUsed = dateNow.Subtract(startTime);
-                endTimeText.Text = Convert.ToDateTime(getTime(computerID)[1]).AddHours(timeRemaining.Hour).AddMinutes(timeRemaining.Minute).AddSeconds(timeRemaining.Second).ToString();
+                DateTime endTime = Convert.ToDateTime(getTime(computerID)[1]).AddHours(timeRemaining.Hour).AddMinutes(timeRemaining.Minute).AddSeconds(timeRemaining.Second);
+                endTimeText.Text = endTime.ToString("HH:mm:ss");
                 hourText.Text = getTime(computerID)[2].ToString();
                 DateTime timeUsedCon = dateNow.Date + timeUsed;
                 TimeSpan remaining = timeRemaining.Subtract(timeUsedCon);
                 if (remaining.TotalSeconds > 0)
                 {
-                    remainText.Text = remaining.ToString();
+                    DateTime remainingDateTime = DateTime.Now.Date + remaining;
+                    remainText.Text = remainingDateTime.ToString("HH:mm:ss");
                 }
                 else
                 {
@@ -278,6 +280,8 @@ namespace Project_Internet_Cafe
 
         private void computerData_Click(object sender, DataGridViewCellEventArgs e)
         {
+            showComputer(computerData);
+            cellColorChange();
             resetBox();
             showData();
             revokeUser();

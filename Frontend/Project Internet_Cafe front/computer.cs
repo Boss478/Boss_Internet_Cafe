@@ -52,11 +52,11 @@ namespace Project_Internet_Cafe_front
             return remainTime;
         }
 
-        private string getEndTime()
+        private string getEndTime(string startTime)
         {
-            DateTime dateNow = DateTime.Now;
+            DateTime start = Convert.ToDateTime(startTime);
             DateTime timeRemaining = Convert.ToDateTime(getRemainingTimeTicket(ticketCheck.ticketID));
-            string endTime = Convert.ToDateTime(dateNow).AddHours(timeRemaining.Hour).AddMinutes(timeRemaining.Minute).AddSeconds(timeRemaining.Second).ToString("HH:mm:ss");
+            string endTime = Convert.ToDateTime(start).AddHours(timeRemaining.Hour).AddMinutes(timeRemaining.Minute).AddSeconds(timeRemaining.Second).ToString("HH:mm:ss");
             return endTime;
         }
 
@@ -103,7 +103,7 @@ namespace Project_Internet_Cafe_front
         private void computer_Load(object sender, EventArgs e)
         {
             string start = DateTime.Now.ToString("HH:mm:ss");
-            string end = getEndTime();
+            string end = getEndTime(getTime()[1]);
             startTime.Text = start;
             endTime.Text = end;
             remainText.Text = getRemainingTimeTicket(ticketCheck.ticketID);
@@ -187,7 +187,7 @@ namespace Project_Internet_Cafe_front
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string start = Convert.ToDateTime(getTime()[0]).ToString("HH:mm:ss");
-            string end = getEndTime();
+            string end = getEndTime(start);
             startTime.Text = start;
             endTime.Text = end;
             remainText.Text = getRemainingTime();

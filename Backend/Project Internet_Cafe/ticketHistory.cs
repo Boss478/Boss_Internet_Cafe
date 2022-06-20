@@ -82,6 +82,7 @@ namespace Project_Internet_Cafe
             string[] nameList = getAllName().ToArray();
             foreach (string name in nameList)
             {
+                comboBox1.Items.Add("(all)");
                 comboBox1.Items.Add(name.ToString());
                 comboBox1.AutoCompleteCustomSource.Add(name.ToString());
             }

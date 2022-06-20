@@ -241,7 +241,7 @@ namespace Project_Internet_Cafe
 
         private void showData()
         {
-            computerData.CurrentRow.Selected = true;
+            //computerData.CurrentRow.Selected = true;
             int selectedRow = computerData.CurrentCell.RowIndex;
             int computerID = Convert.ToInt32(computerData.Rows[selectedRow].Cells["id"].FormattedValue.ToString());
             computerIDText.Text = computerID.ToString();
@@ -280,7 +280,7 @@ namespace Project_Internet_Cafe
 
         private void computerData_Click(object sender, DataGridViewCellEventArgs e)
         {
-            showComputer(computerData);
+            //showComputer(computerData);
             cellColorChange();
             resetBox();
             showData();

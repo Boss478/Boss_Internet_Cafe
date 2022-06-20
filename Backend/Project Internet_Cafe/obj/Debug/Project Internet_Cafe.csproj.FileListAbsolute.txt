@@ -27,3 +27,31 @@ G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\
 G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.ticket.resources
 G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.ticketHistory.resources
 G:\My Drive\ED251007\Cs Project\Project Internet_Cafe\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.receipt.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\Project Internet_Cafe.exe.config
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\Project Internet_Cafe.exe
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\Project Internet_Cafe.pdb
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\Google.Protobuf.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\ZstdNet.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\System.Memory.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\System.Buffers.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\bin\Debug\MySql.Data.xml
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.AssemblyReference.cache
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.SuggestedBindingRedirects.cache
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.exe.config
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.loginForm.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.computerForm.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.memberForm.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.Properties.Resources.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.receipt.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.ticket.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.ticketHistory.resources
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.GenerateResource.cache
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.CoreCompileInputs.cache
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.CopyComplete
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.exe
+C:\Users\Boss478\Downloads\Boss_Internet_Cafe-main\Boss_Internet_Cafe-main\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.pdb

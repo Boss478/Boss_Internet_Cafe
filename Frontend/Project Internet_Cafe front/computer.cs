@@ -14,6 +14,8 @@ namespace Project_Internet_Cafe_front
     public partial class computer : Form
     {
         MySqlConnection conn = loginForm.databaseConnection();
+        loginForm loginForm = new loginForm();
+        ticketCheck ticketForm = new ticketCheck();
         public computer()
         {
             InitializeComponent();
@@ -172,7 +174,6 @@ namespace Project_Internet_Cafe_front
         {
             updateTicket(ticketCheck.ticketID);
             MessageBox.Show("ออกจากระบบเรียบร้อยแล้ว", "Logged Out");
-            loginForm loginForm = new loginForm();
             loginForm.Show();
             this.Close();
         }
@@ -180,7 +181,6 @@ namespace Project_Internet_Cafe_front
         private void button2_Click(object sender, EventArgs e)
         {
             updateTicket(ticketCheck.ticketID);
-            ticketCheck ticketForm = new ticketCheck();
             ticketForm.Show();
             this.Close();
         }
@@ -188,6 +188,17 @@ namespace Project_Internet_Cafe_front
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             remainText.Text = getRemainingTime();
+            if (checkTimeout() == true)
+            {
+                updateTicket(ticketCheck.ticketID);
+                if (loginForm.phoneGlobal.Contains("guest")) {
+                    loginForm.Show();
+                } else
+                {
+                    ticketForm.Show();
+                }
+                this.Close();
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Project_Internet_Cafe
 {
     public partial class computerForm : Form
     {
+        System.Timers.Timer timer;
+        int h, m, s;
         loginForm loginWin = new loginForm();
         MySqlConnection conn = loginForm.databaseConnection();
         public static double price = 15; // per hour
@@ -47,8 +49,34 @@ namespace Project_Internet_Cafe
             showComputer(computerData);
             cellColorChange();
             revokeUser();
+
         }
 
+        private void onTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                s -= 1;
+                if (s < 0)
+                {
+                    s = 59;
+                    m -= 1;
+                }
+                if (m < 0)
+                {
+                    m = 59;
+                    h -= 1;
+                }
+
+                if (h == 0 && m == 0 && s == 0)
+                {
+                    timer.Stop();
+                    revokeUser();
+                    remainText.Text = "00:00:00";
+                }
+                remainText.Text = String.Format("{0}:{1}:{2}", h.ToString().PadLeft(2, '0'), m.ToString().PadLeft(2, '0'), s.ToString().PadLeft(2, '0'));
+            }));
+        }
         private void revokeUser()
         {
             string[] id = allID();
@@ -61,7 +89,7 @@ namespace Project_Internet_Cafe
                     string sql2 = $"UPDATE ticket SET remaining = '00:00:00' WHERE id = '{ticketID}'";
                     MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
                     conn.Open();
-                    int rows2 = cmd2.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
                     conn.Close();
 
 
@@ -71,15 +99,14 @@ namespace Project_Internet_Cafe
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     conn.Open();
 
-                    int rows = cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
                     conn.Close();
 
-                    if (rows > 0)
-                    {
-                        showComputer(computerData);
-                        cellColorChange();
-                    }
+                    showComputer(computerData);
+                    cellColorChange();
+                    resetBox();
+                    showData();
                 }
             }
         }
@@ -266,6 +293,18 @@ namespace Project_Internet_Cafe
                 {
                     DateTime remainingDateTime = DateTime.Now.Date + remaining;
                     remainText.Text = remainingDateTime.ToString("HH:mm:ss");
+
+                    h = remainingDateTime.Hour;
+                    m = remainingDateTime.Minute;
+                    s = remainingDateTime.Second;
+                    timer = new System.Timers.Timer();
+                    timer.Interval = 1000;
+                    timer.Elapsed += onTimeEvent;
+                    
+                    if (timer.Enabled == false)
+                    {
+                        timer.Enabled = true;
+                    }
                 }
                 else
                 {
@@ -280,15 +319,24 @@ namespace Project_Internet_Cafe
 
         private void computerData_Click(object sender, DataGridViewCellEventArgs e)
         {
+            if (timer != null && timer.Enabled)
+            {
+                timer.Enabled = false;
+            }
             //showComputer(computerData);
             cellColorChange();
             resetBox();
             showData();
             revokeUser();
+
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (timer != null && timer.Enabled)
+            {
+                timer.Enabled = false;
+            }
             showComputer(computerData);
             cellColorChange();
             resetBox();
@@ -308,6 +356,18 @@ namespace Project_Internet_Cafe
             ticket ticketForm = new ticket();
             ticketForm.Show();
             this.Close();
+        }
+
+        private void computerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (timer != null && timer.Enabled)
+            {
+                timer.Enabled = false;
+            }
+        }
+
+        private void computerIDText_TextChanged(object sender, EventArgs e)
+        {
         }
 
         private void ticketHistory_menuStripClick(object sender, EventArgs e)

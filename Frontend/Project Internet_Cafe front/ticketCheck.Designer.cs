@@ -34,7 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.IDText = new System.Windows.Forms.TextBox();
             this.remainText = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ออกจากระบบToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ticketDataView)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ticketDataView
@@ -95,6 +98,23 @@
             this.remainText.Size = new System.Drawing.Size(89, 22);
             this.remainText.TabIndex = 5;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ออกจากระบบToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(357, 24);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // ออกจากระบบToolStripMenuItem
+            // 
+            this.ออกจากระบบToolStripMenuItem.Name = "ออกจากระบบToolStripMenuItem";
+            this.ออกจากระบบToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.ออกจากระบบToolStripMenuItem.Text = "ออกจากระบบ";
+            this.ออกจากระบบToolStripMenuItem.Click += new System.EventHandler(this.logoutClick);
+            // 
             // ticketCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,10 +126,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.useButton);
             this.Controls.Add(this.ticketDataView);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ticketCheck";
             this.Text = "เลือกตั๋ว";
             this.Load += new System.EventHandler(this.ticketCheck_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ticketDataView)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +147,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox IDText;
         private System.Windows.Forms.TextBox remainText;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ออกจากระบบToolStripMenuItem;
     }
 }

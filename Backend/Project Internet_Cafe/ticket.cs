@@ -230,6 +230,7 @@ namespace Project_Internet_Cafe
         private void clearData()
         {
             userPhoneText.Clear();
+            notMemberCheck.Checked = false;
             timeText.Text = "0";
             userPointText.Clear();
             usePointText.Text = "0";
@@ -257,7 +258,12 @@ namespace Project_Internet_Cafe
                     string password = "-";
                     if (userPhoneText.Text == "* Guest *")
                     {
-                        phone = "guest" + DateTime.Now.Month + DateTime.Now.Day + passwordGenerator(4);
+                        string guestUser = "guest" + DateTime.Now.Month + DateTime.Now.Day;
+                        if (guestUser.Length <= 12)
+                        {
+                            guestUser = guestUser + passwordGenerator(12 - guestUser.Length);
+                        }
+                        phone = guestUser;
                         password = passwordGenerator(10);
                     }
 

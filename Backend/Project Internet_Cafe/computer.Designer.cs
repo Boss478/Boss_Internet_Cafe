@@ -80,7 +80,7 @@
             // ตรวจสอบสมาชกToolStripMenuItem
             // 
             this.ตรวจสอบสมาชกToolStripMenuItem.Name = "ตรวจสอบสมาชกToolStripMenuItem";
-            this.ตรวจสอบสมาชกToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบสมาชกToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ตรวจสอบสมาชกToolStripMenuItem.Text = "สมาชิก";
             this.ตรวจสอบสมาชกToolStripMenuItem.Click += new System.EventHandler(this.member_menuStripClick);
             // 
@@ -90,27 +90,27 @@
             this.ซอตวToolStripMenuItem,
             this.ประวตการซอToolStripMenuItem1});
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Name = "ตรวจสอบประวตการซอตวToolStripMenuItem";
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ซอตวToolStripMenuItem
             // 
             this.ซอตวToolStripMenuItem.Name = "ซอตวToolStripMenuItem";
-            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ซอตวToolStripMenuItem.Text = "ซื้อตั๋ว";
             this.ซอตวToolStripMenuItem.Click += new System.EventHandler(this.buyTicket_menuStripClick);
             // 
             // ประวตการซอToolStripMenuItem1
             // 
             this.ประวตการซอToolStripMenuItem1.Name = "ประวตการซอToolStripMenuItem1";
-            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.ประวตการซอToolStripMenuItem1.Text = "ประวัติการซื้อ";
             this.ประวตการซอToolStripMenuItem1.Click += new System.EventHandler(this.ticketHistory_menuStripClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem
             // 
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem.Click += new System.EventHandler(this.exit_menuStripClick);
             // 
@@ -152,6 +152,7 @@
             this.computerIDText.ReadOnly = true;
             this.computerIDText.Size = new System.Drawing.Size(154, 26);
             this.computerIDText.TabIndex = 3;
+            this.computerIDText.TextChanged += new System.EventHandler(this.computerIDText_TextChanged);
             // 
             // availableText
             // 
@@ -302,6 +303,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "computerForm";
             this.Text = "ระบบผู้ดูแล";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.computerForm_FormClosing);
             this.Load += new System.EventHandler(this.adminForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

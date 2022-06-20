@@ -13,6 +13,9 @@ namespace Project_Internet_Cafe_front
 {
     public partial class computer : Form
     {
+
+        System.Timers.Timer timer;
+        int h, m, s;
         MySqlConnection conn = loginForm.databaseConnection();
         loginForm loginForm = new loginForm();
         ticketCheck ticketForm = new ticketCheck();
@@ -110,6 +113,53 @@ namespace Project_Internet_Cafe_front
             startTime.Text = start;
             endTime.Text = end;
             remainText.Text = getRemainingTimeTicket(ticketCheck.ticketID);
+
+            DateTime time = Convert.ToDateTime(getRemainingTimeTicket(ticketCheck.ticketID));
+            h = time.Hour;
+            m = time.Minute;
+            s = time.Second;
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += onTimeEvent;
+
+            timer.Start();
+        }
+
+        private void onTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                s -= 1;
+                if (s < 0)
+                {
+                    s = 59;
+                    m -= 1;
+                }
+                if (m < 0)
+                {
+                    m = 59;
+                    h -= 1;
+                }
+
+                if (h == 0 && m == 0 && s == 0)
+                {
+                    timer.Stop();
+                    if (checkTimeout() == true)
+                    {
+                        updateTicket(ticketCheck.ticketID);
+                        if (loginForm.phoneGlobal.Contains("guest"))
+                        {
+                            loginForm.Show();
+                        }
+                        else
+                        {
+                            ticketForm.Show();
+                        }
+                        this.Close();
+                    } 
+                }
+                remainText.Text = String.Format("{0}:{1}:{2}", h.ToString().PadLeft(2,'0'), m.ToString().PadLeft(2,'0'), s.ToString().PadLeft(2,'0'));
+            }));
         }
 
         private bool checkTimeout()
@@ -178,11 +228,23 @@ namespace Project_Internet_Cafe_front
             this.Close();
         }
 
+        private void computer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
+            Application.DoEvents();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            updateTicket(ticketCheck.ticketID);
-            ticketForm.Show();
-            this.Close();
+            if (loginForm.phoneGlobal.Contains("guest"))
+            {
+                MessageBox.Show("เฉพาะสมาชิกเท่านั้นที่สามารถใช้งานได้");
+            } else
+            {
+                updateTicket(ticketCheck.ticketID);
+                ticketForm.Show();
+                this.Close();
+            }
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)

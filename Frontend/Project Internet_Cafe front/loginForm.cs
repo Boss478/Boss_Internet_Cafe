@@ -138,7 +138,15 @@ namespace Project_Internet_Cafe_front
                 {
                     if (username.Contains("guest"))
                     {
-
+                        phoneGlobal = username;
+                        computerGlobal = Convert.ToInt32(computerID);
+                        ticketCheck.dateGlobal = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        ticketCheck.ticketID = Convert.ToInt32(getTicketID(username)[0]);
+                        ticketCheck.setComputerUnavailable(ticketCheck.ticketID);
+                        MessageBox.Show("เข้าสู่ระบบสำเร็จ", "Succeed");
+                        computer computerForm = new computer();
+                        computerForm.Show();
+                        this.Hide();
                     }
                     else
                     {

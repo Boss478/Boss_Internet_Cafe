@@ -168,6 +168,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "computer";
             this.Text = "ระบบ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.computer_FormClosing);
             this.Load += new System.EventHandler(this.computer_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

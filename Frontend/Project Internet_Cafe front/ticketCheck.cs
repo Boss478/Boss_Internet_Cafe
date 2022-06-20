@@ -44,8 +44,9 @@ namespace Project_Internet_Cafe_front
             loadTicketData(loginForm.phoneGlobal);
         }
 
-        private void setComputerUnavailable(int ticketID)
+        public static void setComputerUnavailable(int ticketID)
         {
+            MySqlConnection conn = loginForm.databaseConnection();
             string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string sql = $"UPDATE computer SET available = '0', ticket_id = '{ticketID}', start_time = '{date}' WHERE id = '{loginForm.computerGlobal}'";
 
@@ -64,7 +65,7 @@ namespace Project_Internet_Cafe_front
             ticketID = Convert.ToInt32(ticketDataView.Rows[selectedRow].Cells["id"].FormattedValue.ToString());
             string remainTime = ticketDataView.Rows[selectedRow].Cells["remaining"].FormattedValue.ToString();
 
-            ticketCheck.dateGlobal = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            dateGlobal = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             if (IDText.Text != null && remainText.Text != null)
             {
                 computer computerForm = new computer();
@@ -89,6 +90,13 @@ namespace Project_Internet_Cafe_front
             IDText.Text = ticketIDClick.ToString();
             remainText.Text = remainTime;
 
+        }
+
+        private void logoutClick(object sender, EventArgs e)
+        {
+            this.Close();
+            loginForm loginForm = new loginForm();
+            loginForm.Show();
         }
     }
 }

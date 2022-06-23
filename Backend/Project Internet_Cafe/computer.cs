@@ -70,9 +70,13 @@ namespace Project_Internet_Cafe
 
                 if (h == 0 && m == 0 && s == 0)
                 {
-                    timer.Stop();
-                    revokeUser();
                     remainText.Text = "00:00:00";
+                    timer.Stop();
+                    showComputer(computerData);
+                    cellColorChange();
+                    resetBox();
+                    showData();
+                    revokeUser();
                 }
                 remainText.Text = String.Format("{0}:{1}:{2}", h.ToString().PadLeft(2, '0'), m.ToString().PadLeft(2, '0'), s.ToString().PadLeft(2, '0'));
             }));
@@ -303,7 +307,7 @@ namespace Project_Internet_Cafe
                     
                     if (timer.Enabled == false)
                     {
-                        timer.Enabled = true;
+                        timer.Start();
                     }
                 }
                 else
@@ -321,7 +325,7 @@ namespace Project_Internet_Cafe
         {
             if (timer != null && timer.Enabled)
             {
-                timer.Enabled = false;
+                timer.Stop();
             }
             //showComputer(computerData);
             cellColorChange();
@@ -335,7 +339,7 @@ namespace Project_Internet_Cafe
         {
             if (timer != null && timer.Enabled)
             {
-                timer.Enabled = false;
+                timer.Stop();
             }
             showComputer(computerData);
             cellColorChange();
@@ -362,7 +366,7 @@ namespace Project_Internet_Cafe
         {
             if (timer != null && timer.Enabled)
             {
-                timer.Enabled = false;
+                timer.Stop();
             }
         }
 

@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(computerForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบสมาชกToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,12 +129,34 @@
             // 
             this.computerData.AllowUserToAddRows = false;
             this.computerData.AllowUserToDeleteRows = false;
+            this.computerData.AllowUserToResizeColumns = false;
+            this.computerData.AllowUserToResizeRows = false;
+            this.computerData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.computerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.computerData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.computerData.Location = new System.Drawing.Point(12, 39);
+            this.computerData.Location = new System.Drawing.Point(25, 36);
             this.computerData.Name = "computerData";
             this.computerData.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.computerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.computerData.RowHeadersVisible = false;
             this.computerData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.computerData.Size = new System.Drawing.Size(242, 344);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.computerData.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.computerData.Size = new System.Drawing.Size(220, 263);
             this.computerData.TabIndex = 1;
             this.computerData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.computerData_Click);
             // 
@@ -146,6 +172,7 @@
             // 
             // computerIDText
             // 
+            this.computerIDText.BackColor = System.Drawing.Color.White;
             this.computerIDText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.computerIDText.Location = new System.Drawing.Point(422, 36);
             this.computerIDText.Name = "computerIDText";
@@ -156,6 +183,7 @@
             // 
             // availableText
             // 
+            this.availableText.BackColor = System.Drawing.Color.White;
             this.availableText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.availableText.Location = new System.Drawing.Point(422, 75);
             this.availableText.Name = "availableText";
@@ -175,6 +203,7 @@
             // 
             // userText
             // 
+            this.userText.BackColor = System.Drawing.Color.White;
             this.userText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.userText.Location = new System.Drawing.Point(282, 137);
             this.userText.Name = "userText";
@@ -194,6 +223,7 @@
             // 
             // startTimeText
             // 
+            this.startTimeText.BackColor = System.Drawing.Color.White;
             this.startTimeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.startTimeText.Location = new System.Drawing.Point(282, 202);
             this.startTimeText.Name = "startTimeText";
@@ -213,6 +243,7 @@
             // 
             // endTimeText
             // 
+            this.endTimeText.BackColor = System.Drawing.Color.White;
             this.endTimeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.endTimeText.Location = new System.Drawing.Point(430, 202);
             this.endTimeText.Name = "endTimeText";
@@ -222,6 +253,7 @@
             // 
             // hourText
             // 
+            this.hourText.BackColor = System.Drawing.Color.White;
             this.hourText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.hourText.Location = new System.Drawing.Point(361, 238);
             this.hourText.Name = "hourText";
@@ -261,6 +293,7 @@
             // 
             // remainText
             // 
+            this.remainText.BackColor = System.Drawing.Color.White;
             this.remainText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.remainText.Location = new System.Drawing.Point(361, 273);
             this.remainText.Name = "remainText";
@@ -282,7 +315,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 399);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ClientSize = new System.Drawing.Size(588, 314);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.remainText);
             this.Controls.Add(this.label7);
@@ -300,7 +334,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.computerData);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "computerForm";
             this.Text = "ระบบผู้ดูแล";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.computerForm_FormClosing);

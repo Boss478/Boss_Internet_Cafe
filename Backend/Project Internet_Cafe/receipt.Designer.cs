@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(receipt));
             this.label1 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
@@ -39,17 +40,19 @@
             this.pointReceivedLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ticketIDLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.ticketIDLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.Location = new System.Drawing.Point(69, 9);
+            this.label1.Location = new System.Drawing.Point(69, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 25);
             this.label1.TabIndex = 0;
@@ -59,7 +62,7 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.nameLabel.Location = new System.Drawing.Point(6, 54);
+            this.nameLabel.Location = new System.Drawing.Point(6, 53);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(64, 20);
             this.nameLabel.TabIndex = 1;
@@ -79,21 +82,21 @@
             // 
             this.hourLabel.AutoSize = true;
             this.hourLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.hourLabel.Location = new System.Drawing.Point(6, 120);
+            this.hourLabel.Location = new System.Drawing.Point(6, 129);
             this.hourLabel.Name = "hourLabel";
-            this.hourLabel.Size = new System.Drawing.Size(97, 20);
+            this.hourLabel.Size = new System.Drawing.Size(89, 20);
             this.hourLabel.TabIndex = 3;
-            this.hourLabel.Text = "จำนวนชั่วโมง :";
+            this.hourLabel.Text = "จำนวนชั่วโมง";
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.priceLabel.Location = new System.Drawing.Point(6, 153);
+            this.priceLabel.Location = new System.Drawing.Point(269, 129);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(47, 20);
+            this.priceLabel.Size = new System.Drawing.Size(39, 20);
             this.priceLabel.TabIndex = 4;
-            this.priceLabel.Text = "ราคา :";
+            this.priceLabel.Text = "ราคา";
             // 
             // pointUsedLabel
             // 
@@ -109,7 +112,7 @@
             // 
             this.discountLabel.AutoSize = true;
             this.discountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.discountLabel.Location = new System.Drawing.Point(6, 222);
+            this.discountLabel.Location = new System.Drawing.Point(206, 187);
             this.discountLabel.Name = "discountLabel";
             this.discountLabel.Size = new System.Drawing.Size(58, 20);
             this.discountLabel.TabIndex = 6;
@@ -119,7 +122,7 @@
             // 
             this.totalPriceLabel.AutoSize = true;
             this.totalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.totalPriceLabel.Location = new System.Drawing.Point(6, 259);
+            this.totalPriceLabel.Location = new System.Drawing.Point(6, 234);
             this.totalPriceLabel.Name = "totalPriceLabel";
             this.totalPriceLabel.Size = new System.Drawing.Size(87, 20);
             this.totalPriceLabel.TabIndex = 7;
@@ -129,7 +132,7 @@
             // 
             this.pointReceivedLabel.AutoSize = true;
             this.pointReceivedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.pointReceivedLabel.Location = new System.Drawing.Point(6, 295);
+            this.pointReceivedLabel.Location = new System.Drawing.Point(9, 268);
             this.pointReceivedLabel.Name = "pointReceivedLabel";
             this.pointReceivedLabel.Size = new System.Drawing.Size(77, 20);
             this.pointReceivedLabel.TabIndex = 8;
@@ -139,7 +142,7 @@
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.passwordLabel.Location = new System.Drawing.Point(12, 398);
+            this.passwordLabel.Location = new System.Drawing.Point(12, 401);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(66, 20);
             this.passwordLabel.TabIndex = 9;
@@ -156,11 +159,21 @@
             this.groupBox1.Controls.Add(this.discountLabel);
             this.groupBox1.Controls.Add(this.priceLabel);
             this.groupBox1.Controls.Add(this.pointUsedLabel);
-            this.groupBox1.Location = new System.Drawing.Point(12, 54);
+            this.groupBox1.Location = new System.Drawing.Point(12, 107);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 332);
+            this.groupBox1.Size = new System.Drawing.Size(322, 291);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
+            // 
+            // ticketIDLabel
+            // 
+            this.ticketIDLabel.AutoSize = true;
+            this.ticketIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.ticketIDLabel.Location = new System.Drawing.Point(6, 16);
+            this.ticketIDLabel.Name = "ticketIDLabel";
+            this.ticketIDLabel.Size = new System.Drawing.Size(80, 20);
+            this.ticketIDLabel.TabIndex = 13;
+            this.ticketIDLabel.Text = "Ticket ID :";
             // 
             // label11
             // 
@@ -182,31 +195,35 @@
             this.label12.TabIndex = 12;
             this.label12.Text = "ผู้ที่เป็นสมาชิกสามารถใช้รหัสผ่านของตนเองได้เลย";
             // 
-            // ticketIDLabel
+            // pictureBox1
             // 
-            this.ticketIDLabel.AutoSize = true;
-            this.ticketIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.ticketIDLabel.Location = new System.Drawing.Point(6, 16);
-            this.ticketIDLabel.Name = "ticketIDLabel";
-            this.ticketIDLabel.Size = new System.Drawing.Size(80, 20);
-            this.ticketIDLabel.TabIndex = 13;
-            this.ticketIDLabel.Text = "Ticket ID :";
+            this.pictureBox1.Image = global::Project_Internet_Cafe.Properties.Resources.game_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(41, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 102);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // receipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 482);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(346, 473);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "receipt";
             this.Text = "ใบเสร็จ";
             this.Load += new System.EventHandler(this.receipt_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +245,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label ticketIDLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ticket));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,6 +39,7 @@
             this.ออกจากโปรแกรมToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ประวตการซอToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ออกจากโปรแกรมToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.userPhoneText = new System.Windows.Forms.TextBox();
             this.notMemberCheck = new System.Windows.Forms.CheckBox();
@@ -56,7 +61,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ticketDataView = new System.Windows.Forms.DataGridView();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketDataView)).BeginInit();
             this.SuspendLayout();
@@ -86,14 +90,14 @@
             // ตรวจสอบคอมพวเตอรToolStripMenuItem
             // 
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Name = "ตรวจสอบคอมพวเตอรToolStripMenuItem";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "ตรวจสอบคอมพิวเตอร์";
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Click += new System.EventHandler(this.computer_menuStripClick);
             // 
             // สมาชกToolStripMenuItem
             // 
             this.สมาชกToolStripMenuItem.Name = "สมาชกToolStripMenuItem";
-            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.สมาชกToolStripMenuItem.Text = "สมาชิก";
             this.สมาชกToolStripMenuItem.Click += new System.EventHandler(this.member_menuStripClick);
             // 
@@ -102,22 +106,29 @@
             this.ออกจากโปรแกรมToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ประวตการซอToolStripMenuItem});
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ประวตการซอToolStripMenuItem
             // 
             this.ประวตการซอToolStripMenuItem.Name = "ประวตการซอToolStripMenuItem";
-            this.ประวตการซอToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการซอToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ประวตการซอToolStripMenuItem.Text = "ประวัติการซื้อ";
             this.ประวตการซอToolStripMenuItem.Click += new System.EventHandler(this.ticketHistory_menuStripClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem1
             // 
             this.ออกจากโปรแกรมToolStripMenuItem1.Name = "ออกจากโปรแกรมToolStripMenuItem1";
-            this.ออกจากโปรแกรมToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
             this.ออกจากโปรแกรมToolStripMenuItem1.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem1.Click += new System.EventHandler(this.exit_menuStripClick);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -152,6 +163,7 @@
             // 
             // timeText
             // 
+            this.timeText.BackColor = System.Drawing.Color.White;
             this.timeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.timeText.Location = new System.Drawing.Point(408, 95);
             this.timeText.Name = "timeText";
@@ -172,6 +184,7 @@
             // 
             // moneyCalText
             // 
+            this.moneyCalText.BackColor = System.Drawing.Color.White;
             this.moneyCalText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.moneyCalText.Location = new System.Drawing.Point(366, 198);
             this.moneyCalText.Name = "moneyCalText";
@@ -212,6 +225,7 @@
             // 
             // pointCalText
             // 
+            this.pointCalText.BackColor = System.Drawing.Color.White;
             this.pointCalText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.pointCalText.Location = new System.Drawing.Point(366, 230);
             this.pointCalText.Name = "pointCalText";
@@ -256,6 +270,7 @@
             // 
             // userPointText
             // 
+            this.userPointText.BackColor = System.Drawing.Color.White;
             this.userPointText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.userPointText.Location = new System.Drawing.Point(366, 131);
             this.userPointText.Name = "userPointText";
@@ -285,6 +300,7 @@
             // 
             // usePointText
             // 
+            this.usePointText.BackColor = System.Drawing.Color.White;
             this.usePointText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.usePointText.FormattingEnabled = true;
             this.usePointText.Items.AddRange(new object[] {
@@ -308,6 +324,7 @@
             // 
             // discountText
             // 
+            this.discountText.BackColor = System.Drawing.Color.White;
             this.discountText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.discountText.Location = new System.Drawing.Point(480, 167);
             this.discountText.Name = "discountText";
@@ -340,24 +357,45 @@
             // 
             this.ticketDataView.AllowUserToAddRows = false;
             this.ticketDataView.AllowUserToDeleteRows = false;
+            this.ticketDataView.AllowUserToResizeRows = false;
+            this.ticketDataView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ticketDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ticketDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ticketDataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.ticketDataView.Location = new System.Drawing.Point(13, 28);
             this.ticketDataView.Name = "ticketDataView";
             this.ticketDataView.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ticketDataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.ticketDataView.RowHeadersVisible = false;
             this.ticketDataView.Size = new System.Drawing.Size(250, 288);
             this.ticketDataView.TabIndex = 29;
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(589, 327);
             this.Controls.Add(this.ticketDataView);
             this.Controls.Add(this.label12);
@@ -381,7 +419,10 @@
             this.Controls.Add(this.userPhoneText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "ticket";
             this.Text = "ระบบซื้อตั๋ว";
             this.Load += new System.EventHandler(this.ticket_Load);

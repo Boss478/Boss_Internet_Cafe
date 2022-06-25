@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(memberForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +84,7 @@
             // ตรวจสอบคอมพวเตอรToolStripMenuItem
             // 
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Name = "ตรวจสอบคอมพวเตอรToolStripMenuItem";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "ตรวจสอบคอมพิวเตอร์";
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Click += new System.EventHandler(this.computer_menuStripClick);
             // 
@@ -91,27 +94,27 @@
             this.ซอตวToolStripMenuItem,
             this.ประวตการซอToolStripMenuItem1});
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Name = "ตรวจสอบประวตการซอตวToolStripMenuItem";
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ซอตวToolStripMenuItem
             // 
             this.ซอตวToolStripMenuItem.Name = "ซอตวToolStripMenuItem";
-            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ซอตวToolStripMenuItem.Text = "ซื้อตั๋ว";
             this.ซอตวToolStripMenuItem.Click += new System.EventHandler(this.buyTicket_menuStripClick);
             // 
             // ประวตการซอToolStripMenuItem1
             // 
             this.ประวตการซอToolStripMenuItem1.Name = "ประวตการซอToolStripMenuItem1";
-            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.ประวตการซอToolStripMenuItem1.Text = "ประวัติการซื้อ";
             this.ประวตการซอToolStripMenuItem1.Click += new System.EventHandler(this.ticketHistory_menuStripClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem
             // 
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem.Click += new System.EventHandler(this.exit_menuStripClick);
             // 
@@ -127,10 +130,28 @@
             this.memberData.AllowUserToAddRows = false;
             this.memberData.AllowUserToDeleteRows = false;
             this.memberData.AllowUserToResizeRows = false;
+            this.memberData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.memberData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.memberData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.memberData.DefaultCellStyle = dataGridViewCellStyle2;
             this.memberData.Location = new System.Drawing.Point(13, 28);
             this.memberData.Name = "memberData";
             this.memberData.ReadOnly = true;
+            this.memberData.RowHeadersVisible = false;
             this.memberData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.memberData.Size = new System.Drawing.Size(389, 422);
             this.memberData.TabIndex = 1;
@@ -148,6 +169,7 @@
             // 
             // memberIDText
             // 
+            this.memberIDText.BackColor = System.Drawing.Color.White;
             this.memberIDText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.memberIDText.Location = new System.Drawing.Point(530, 37);
             this.memberIDText.Name = "memberIDText";
@@ -157,6 +179,7 @@
             // 
             // fNameText
             // 
+            this.fNameText.BackColor = System.Drawing.Color.White;
             this.fNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.fNameText.Location = new System.Drawing.Point(421, 108);
             this.fNameText.Name = "fNameText";
@@ -175,6 +198,7 @@
             // 
             // phoneText
             // 
+            this.phoneText.BackColor = System.Drawing.Color.White;
             this.phoneText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.phoneText.Location = new System.Drawing.Point(421, 164);
             this.phoneText.Name = "phoneText";
@@ -193,6 +217,7 @@
             // 
             // pointText
             // 
+            this.pointText.BackColor = System.Drawing.Color.White;
             this.pointText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.pointText.Location = new System.Drawing.Point(490, 296);
             this.pointText.Name = "pointText";
@@ -211,6 +236,7 @@
             // 
             // sNameText
             // 
+            this.sNameText.BackColor = System.Drawing.Color.White;
             this.sNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.sNameText.Location = new System.Drawing.Point(587, 108);
             this.sNameText.Name = "sNameText";
@@ -267,6 +293,7 @@
             // 
             // passwordText
             // 
+            this.passwordText.BackColor = System.Drawing.Color.White;
             this.passwordText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.passwordText.Location = new System.Drawing.Point(421, 229);
             this.passwordText.Name = "passwordText";
@@ -299,6 +326,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(755, 462);
             this.Controls.Add(this.showPasswordCheck);
             this.Controls.Add(this.passwordText);
@@ -318,7 +346,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.memberData);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "memberForm";
             this.Text = "ระบบจัดการสมาชิก";
             this.Load += new System.EventHandler(this.memberForm_Load);

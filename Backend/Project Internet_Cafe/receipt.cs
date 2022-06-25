@@ -74,8 +74,8 @@ namespace Project_Internet_Cafe
                 nameLabel.Text = "ชื่อผู้ซื้อ : " + name.ToString();
             }
             timeLabel.Text = "เวลา : " + Convert.ToDateTime(dataList[3]).ToString("dd-MM-yyyy HH:mm:ss");
-            hourLabel.Text = "จำนวนชั่วโมง : " + dataList[2] + " ชั่วโมง";
-            priceLabel.Text = "ราคา : " + Convert.ToDateTime(dataList[2]).Hour * computerForm.price + " บาท";
+            hourLabel.Text = "จำนวนชั่วโมง \n" + Convert.ToDateTime(dataList[2]).Hour + " ชั่วโมง";
+            priceLabel.Text = "ราคา \n" + Convert.ToDateTime(dataList[2]).Hour * computerForm.price + "";
             pointUsedLabel.Text = "แต้มที่ใช้ : " + dataList[6] + " แต้ม";
             discountLabel.Text = "ส่วนลด : " + ((Convert.ToDateTime(dataList[2]).Hour * computerForm.price) - Convert.ToInt32(dataList[4])) + " บาท";
             totalPriceLabel.Text = "รวมเป็นเงิน : " + dataList[4] + " บาท";

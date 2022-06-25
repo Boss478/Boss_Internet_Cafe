@@ -177,6 +177,7 @@ namespace Project_Internet_Cafe_front
             {
                 comboBox1.Items.Add(item);
             }
+            comboBox1.Text = availableList[0];
             
         }
     }

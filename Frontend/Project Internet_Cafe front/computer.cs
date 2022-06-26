@@ -144,6 +144,7 @@ namespace Project_Internet_Cafe_front
                 if (h == 0 && m == 0 && s == 0)
                 {
                     timer.Stop();
+                    remainText.Clear();
                     if (checkTimeout() == true)
                     {
                         updateTicket(ticketCheck.ticketID);

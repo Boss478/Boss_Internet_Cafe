@@ -56,6 +56,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.remainText = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.computerData)).BeginInit();
             this.SuspendLayout();
@@ -156,7 +157,7 @@
             this.computerData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.computerData.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.computerData.Size = new System.Drawing.Size(220, 263);
+            this.computerData.Size = new System.Drawing.Size(220, 334);
             this.computerData.TabIndex = 1;
             this.computerData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.computerData_Click);
             // 
@@ -179,7 +180,6 @@
             this.computerIDText.ReadOnly = true;
             this.computerIDText.Size = new System.Drawing.Size(154, 26);
             this.computerIDText.TabIndex = 3;
-            this.computerIDText.TextChanged += new System.EventHandler(this.computerIDText_TextChanged);
             // 
             // availableText
             // 
@@ -300,6 +300,7 @@
             this.remainText.ReadOnly = true;
             this.remainText.Size = new System.Drawing.Size(98, 26);
             this.remainText.TabIndex = 17;
+            this.remainText.TextChanged += new System.EventHandler(this.remainText_TextChanged);
             // 
             // label9
             // 
@@ -311,12 +312,25 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "ชั่วโมง";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.button2.Location = new System.Drawing.Point(457, 312);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(107, 58);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "เพิ่มเครื่อง";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // computerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(588, 314);
+            this.ClientSize = new System.Drawing.Size(588, 382);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.remainText);
             this.Controls.Add(this.label7);
@@ -376,5 +390,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripMenuItem ซอตวToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ประวตการซอToolStripMenuItem1;
+        private System.Windows.Forms.Button button2;
     }
 }

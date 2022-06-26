@@ -70,7 +70,7 @@ namespace Project_Internet_Cafe
 
                 if (h == 0 && m == 0 && s == 0)
                 {
-                    remainText.Text = "00:00:00";
+                    remainText.Clear();
                     timer.Stop();
                     showComputer(computerData);
                     cellColorChange();
@@ -97,7 +97,7 @@ namespace Project_Internet_Cafe
                     conn.Close();
 
 
-                    DateTime date = DateTime.Now;
+                    string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     string sql = $"UPDATE computer SET available = '1', ticket_id = '0', start_time = '{date}' WHERE id = '{numberID}'";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -114,6 +114,50 @@ namespace Project_Internet_Cafe
                 }
             }
         }
+
+        /*private void forceComputerStatus (int computerID)
+        {
+            string remainTime = "00:00:00";
+            if (checkTimeout(computerID) == true)
+            {
+                remainTime = "00:00:00";
+            }
+            else
+            {
+                DateTime dateNow = Convert.ToDateTime(DateTime.Now);
+                DateTime startTime = Convert.ToDateTime(getTime(computerID)[1]);
+                DateTime timeRemaining = Convert.ToDateTime(getTime(computerID)[3]); ;
+                TimeSpan timeUsed = dateNow.Subtract(startTime);
+                DateTime timeUsedCon = dateNow.Date + timeUsed;
+                TimeSpan remaining = timeRemaining.Subtract(timeUsedCon);
+                DateTime remainTimeCvt = dateNow.Date + remaining;
+                remainTime = remainTimeCvt.ToString("HH:mm:ss");
+            }
+            Console.WriteLine(remainTime);
+            string sql2 = $"UPDATE ticket SET remaining = '{remainTime}' WHERE id = '{getTime(computerID)[0]}'";
+            MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
+            conn.Open();
+            cmd2.ExecuteNonQuery();
+            conn.Close();
+
+
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string sql = $"UPDATE computer SET available = '1', ticket_id = '0', start_time = '{date}' WHERE id = '{computerID}'";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            MessageBox.Show($"Computer ID : {computerID} \nถูกทำให้วว่างแล้ว", "Succeed");
+            showComputer(computerData);
+            cellColorChange();
+            resetBox();
+            showData();
+            revokeUser();
+        }*/
 
         private void exitProgramClick(object sender, EventArgs e)
         {
@@ -219,11 +263,11 @@ namespace Project_Internet_Cafe
             return name;
         }
 
-        private string[] getTime(int id)
+        private string[] getTime(int computerID)
         {
             string[] dateTime = { };
 
-            string sql1 = "SELECT ticket_id, start_time FROM computer WHERE id = '" + id + "'";
+            string sql1 = "SELECT ticket_id, start_time FROM computer WHERE id = '" + computerID + "'";
             MySqlCommand cmd = new MySqlCommand(sql1, conn);
             conn.Open();
 
@@ -370,8 +414,45 @@ namespace Project_Internet_Cafe
             }
         }
 
-        private void computerIDText_TextChanged(object sender, EventArgs e)
+        private void addComputer()
         {
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string sql = $"INSERT INTO computer (available,ticket_id,start_time) VALUES ('1','0','{date}')";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            MessageBox.Show("เพิ่มคอมพิวเตอร์เรียบร้อยแล้ว", "Succeed");
+            showComputer(computerData);
+            cellColorChange();
+            showData();
+        }
+
+        /*
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (timer != null)
+            {
+                timer.Stop();
+            }
+            forceComputerStatus(Convert.ToInt32(computerIDText.Text));
+        }*/
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            addComputer();
+        }
+
+        private void remainText_TextChanged(object sender, EventArgs e)
+        {
+            if (remainText.Text == "00:00:00")
+            {
+                remainText.Text = "";
+            }
         }
 
         private void ticketHistory_menuStripClick(object sender, EventArgs e)

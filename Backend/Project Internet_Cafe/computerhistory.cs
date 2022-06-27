@@ -163,5 +163,10 @@ namespace Project_Internet_Cafe
                 dateTimePicker1.Enabled = true;
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

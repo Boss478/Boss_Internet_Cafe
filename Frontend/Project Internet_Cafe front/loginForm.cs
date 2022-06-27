@@ -181,5 +181,10 @@ namespace Project_Internet_Cafe_front
             comboBox1.Text = availableList[0];
             
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -375,7 +375,7 @@ namespace Project_Internet_Cafe
 
         private void exit_menuStripClick(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

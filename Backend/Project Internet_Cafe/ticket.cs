@@ -190,11 +190,13 @@ namespace Project_Internet_Cafe
                         if (discount >= price)
                         {
                             moneyCalText.Text = "0";
-                            pointCalText.Text = (hour * computerForm.point).ToString("N0");
+                            pointCalText.Text = (hour * computerForm.point).ToString();
+                            //pointCalText.Text = (hour * computerForm.point).ToString("N0");
                         } else
                         {
-                            moneyCalText.Text = ((hour * computerForm.price) - discount).ToString("N0");
-                            pointCalText.Text = (hour * computerForm.point).ToString("N0");
+                            moneyCalText.Text = ((hour * computerForm.price) - discount).ToString();
+                            pointCalText.Text = (hour * computerForm.point).ToString();
+                            //pointCalText.Text = (hour * computerForm.point).ToString("N0");
                         }
                     }
                     catch (Exception ex)
@@ -255,17 +257,14 @@ namespace Project_Internet_Cafe
             try
             {
                 string phone = userPhoneText.Text;
-                int hour = Convert.ToInt32(timeText.Text);
-                string dateNow = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
-                string time = DateTime.Now.Date.AddHours(hour).ToString("HH:mm:ss");
-                int userPoint = Convert.ToInt32(userPointText.Text);
-                int PointUsed = Convert.ToInt32(usePointText.Text);
-                int discount = Convert.ToInt32(discountText.Text);
-                int price = Convert.ToInt32(moneyCalText.Text);
-                int pointReceive = Convert.ToInt32(pointCalText.Text);
-
                 if (userPhoneText.BackColor == Color.LightGreen || phone == "* Guest *")
                 {
+                    int hour = Convert.ToInt32(timeText.Text);
+                    string dateNow = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
+                    string time = DateTime.Now.Date.AddHours(hour).ToString("HH:mm:ss");
+                    int userPoint = Convert.ToInt32(userPointText.Text);
+                    int PointUsed = Convert.ToInt32(usePointText.Text);
+                    int discount = Convert.ToInt32(discountText.Text);
                     string password = "-";
                     if (userPhoneText.Text == "* Guest *")
                     {
@@ -277,9 +276,11 @@ namespace Project_Internet_Cafe
                         phone = guestUser;
                         password = passwordGenerator(10);
                     }
-
                     if (PointUsed <= userPoint)
                     {
+                        int price = Convert.ToInt32(moneyCalText.Text);
+
+                        int pointReceive = Convert.ToInt32(pointCalText.Text);
                         string sql = $"INSERT INTO ticket (user,password,time,remaining) VALUES ('{phone}','{password}','{time}','{time}')";
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
                         conn.Open();

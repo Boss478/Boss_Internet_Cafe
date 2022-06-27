@@ -57,6 +57,8 @@
             this.remainText = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.คอมพวเตอรToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ประวตการใชงานToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.computerData)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +77,7 @@
             // goToolStripMenuItem
             // 
             this.goToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.คอมพวเตอรToolStripMenuItem,
             this.ตรวจสอบสมาชกToolStripMenuItem,
             this.ตรวจสอบประวตการซอตวToolStripMenuItem,
             this.ออกจากโปรแกรมToolStripMenuItem});
@@ -85,7 +88,7 @@
             // ตรวจสอบสมาชกToolStripMenuItem
             // 
             this.ตรวจสอบสมาชกToolStripMenuItem.Name = "ตรวจสอบสมาชกToolStripMenuItem";
-            this.ตรวจสอบสมาชกToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.ตรวจสอบสมาชกToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ตรวจสอบสมาชกToolStripMenuItem.Text = "สมาชิก";
             this.ตรวจสอบสมาชกToolStripMenuItem.Click += new System.EventHandler(this.member_menuStripClick);
             // 
@@ -95,7 +98,7 @@
             this.ซอตวToolStripMenuItem,
             this.ประวตการซอToolStripMenuItem1});
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Name = "ตรวจสอบประวตการซอตวToolStripMenuItem";
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ซอตวToolStripMenuItem
@@ -115,7 +118,7 @@
             // ออกจากโปรแกรมToolStripMenuItem
             // 
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem.Click += new System.EventHandler(this.exit_menuStripClick);
             // 
@@ -324,6 +327,21 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // คอมพวเตอรToolStripMenuItem
+            // 
+            this.คอมพวเตอรToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ประวตการใชงานToolStripMenuItem});
+            this.คอมพวเตอรToolStripMenuItem.Name = "คอมพวเตอรToolStripMenuItem";
+            this.คอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.คอมพวเตอรToolStripMenuItem.Text = "คอมพิวเตอร์";
+            // 
+            // ประวตการใชงานToolStripMenuItem
+            // 
+            this.ประวตการใชงานToolStripMenuItem.Name = "ประวตการใชงานToolStripMenuItem";
+            this.ประวตการใชงานToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการใชงานToolStripMenuItem.Text = "ประวัติการใช้งาน";
+            this.ประวตการใชงานToolStripMenuItem.Click += new System.EventHandler(this.computerLoginHistory_Click);
+            // 
             // computerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,5 +409,7 @@
         private System.Windows.Forms.ToolStripMenuItem ซอตวToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ประวตการซอToolStripMenuItem1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem คอมพวเตอรToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ประวตการใชงานToolStripMenuItem;
     }
 }

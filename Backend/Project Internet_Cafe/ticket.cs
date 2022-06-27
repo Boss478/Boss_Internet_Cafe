@@ -41,10 +41,27 @@ namespace Project_Internet_Cafe
 
             ticketDataView.DataSource = ds.Tables[0].DefaultView;
         }
+        private void computerAvailableCheck_Click(object sender, EventArgs e)
+        {
+            computerForm computerForm = new computerForm();
+            computerForm.Show();
+            this.Close();
+        }
+        private void computerLoginHistory_Click(object sender, EventArgs e)
+        {
+            computerhistory computerHistory = new computerhistory();
+            computerHistory.Show();
+            this.Close();
+        }
 
         private void ticket_Load(object sender, EventArgs e)
         {
             loadTicket();
+            int[] allPoint = pointList();
+            foreach (int p in allPoint)
+            {
+                usePointText.Items.Add(p);
+            }
         }
 
         private int getPoint(string phone)
@@ -129,46 +146,32 @@ namespace Project_Internet_Cafe
             }
         }
 
+        private int[] pointList()
+        {
+            List<int> point = new List<int>();
+            string sql = $"SELECT point FROM point_exchange";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                point.Add(reader.GetInt32("point"));
+            }
+
+            conn.Close();
+            return point.ToArray();
+        }
 
         private int pointExchange(int point)
         {
             int discount = 0;
-            switch (point)
-            {
-                case 0:
-                    discount = 0;
-                    break;
-                case 20:
-                    discount = 1;
-                    break;
-                case 50:
-                    discount = 3;
-                    break;
-                case 75:
-                    discount = 5;
-                    break;
-                case 100:
-                    discount = 8;
-                    break;
-                case 150:
-                    discount = 15;
-                    break;
-                case 300:
-                    discount = 31;
-                    break;
-                case 500:
-                    discount = 57;
-                    break;
-                case 800:
-                    discount = 100;
-                    break;
-                case 1000:
-                    discount = 150;
-                    break;
-                default:
-                    discount = 0;
-                    break;
-            }
+            string sql = $"SELECT discount FROM point_exchange WHERE point = '{point}'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            discount = reader.GetInt32("discount");
+            conn.Close();
             return discount;
         }
 
@@ -183,8 +186,16 @@ namespace Project_Internet_Cafe
                         int hour = Convert.ToInt32(timeText.Text);
                         int pointUse = Convert.ToInt32(usePointText.Text);
                         int discount = pointExchange(pointUse);
-                        moneyCalText.Text = ((hour * computerForm.price) - discount).ToString("N0");
-                        pointCalText.Text = (hour * computerForm.point).ToString("N0");
+                        double price = hour * computerForm.price;
+                        if (discount >= price)
+                        {
+                            moneyCalText.Text = "0";
+                            pointCalText.Text = (hour * computerForm.point).ToString("N0");
+                        } else
+                        {
+                            moneyCalText.Text = ((hour * computerForm.price) - discount).ToString("N0");
+                            pointCalText.Text = (hour * computerForm.point).ToString("N0");
+                        }
                     }
                     catch (Exception ex)
                     {

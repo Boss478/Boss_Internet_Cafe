@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2022 at 06:57 PM
+-- Generation Time: Jun 27, 2022 at 07:16 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,17 +39,17 @@ CREATE TABLE `computer` (
 --
 
 INSERT INTO `computer` (`id`, `available`, `ticket_id`, `start_time`) VALUES
-(1, 1, 0, '2022-06-26 23:56:59'),
-(2, 1, 0, '2022-06-26 23:55:53'),
+(1, 1, 0, '2022-06-28 00:14:55'),
+(2, 1, 0, '2022-06-27 21:07:19'),
 (3, 1, 0, '2022-06-26 23:44:26'),
 (4, 1, 0, '2022-06-26 23:45:39'),
 (5, 1, 0, '2022-06-26 23:43:05'),
-(6, 1, 0, '2022-06-26 23:47:57'),
+(6, 1, 0, '2022-06-27 21:40:07'),
 (7, 1, 0, '2022-06-25 23:54:38'),
-(8, 1, 0, '2022-06-25 23:54:38'),
+(8, 1, 0, '2022-06-27 21:40:07'),
 (9, 1, 0, '2022-06-25 23:54:38'),
 (10, 1, 0, '2022-06-25 23:54:38'),
-(11, 1, 0, '2022-06-25 23:54:38'),
+(11, 1, 0, '2022-06-27 21:15:20'),
 (12, 1, 0, '2022-06-25 23:54:38'),
 (13, 1, 0, '2022-06-25 23:54:38'),
 (14, 1, 0, '2022-06-26 23:26:03'),
@@ -59,7 +59,8 @@ INSERT INTO `computer` (`id`, `available`, `ticket_id`, `start_time`) VALUES
 (18, 1, 0, '2022-06-26 23:46:57'),
 (19, 1, 0, '2022-06-25 23:54:38'),
 (20, 1, 0, '2022-06-25 23:54:38'),
-(21, 1, 0, '2022-06-26 23:46:52');
+(21, 1, 0, '2022-06-26 23:46:52'),
+(22, 1, 0, '2022-06-28 00:01:10');
 
 -- --------------------------------------------------------
 
@@ -70,11 +71,26 @@ INSERT INTO `computer` (`id`, `available`, `ticket_id`, `start_time`) VALUES
 CREATE TABLE `loginhistory` (
   `id` int(11) NOT NULL,
   `phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
   `login_time` datetime NOT NULL,
-  `logout_time` datetime NOT NULL,
+  `logout_time` datetime DEFAULT NULL,
   `computer_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `loginhistory`
+--
+
+INSERT INTO `loginhistory` (`id`, `phone`, `date`, `login_time`, `logout_time`, `computer_id`, `ticket_id`) VALUES
+(1, 'admin', '2022-06-26', '2022-06-26 21:06:50', '2022-06-26 21:06:50', 2, 9),
+(2, '0123456789', '2022-06-26', '2022-06-26 21:08:33', '2022-06-26 21:08:33', 1, 12),
+(3, 'admin', '2022-06-27', '2022-06-27 21:13:51', '2022-06-27 21:13:51', 1, 9),
+(4, 'admin', '2022-06-27', '2022-06-27 21:14:59', '2022-06-27 21:15:05', 11, 12),
+(5, 'admin', '2022-06-27', '2022-06-27 21:15:15', '2022-06-27 21:15:21', 11, 8),
+(6, '0123456789', '2022-06-27', '2022-06-27 21:15:15', '2022-06-27 21:15:21', 16, 3),
+(7, '0555555555', '2022-06-28', '2022-06-28 00:09:26', '2022-06-28 00:11:04', 1, 26),
+(8, 'guest62899', '2022-06-28', '2022-06-28 00:14:46', '2022-06-28 00:14:55', 1, 27);
 
 -- --------------------------------------------------------
 
@@ -99,7 +115,8 @@ INSERT INTO `member` (`id`, `phone`, `passcode`, `fname`, `sname`, `point`) VALU
 (1, 'admin', '123456', 'Admin', 'Admin', 30),
 (2, '0123456789', '123456', 'Boss', 'Test', 0),
 (5, '0000000000', '123456', 'Test', 'Test', 0),
-(6, '9876543210', '123456', 'abc', 'abc', 0);
+(6, '9876543210', '123456', 'abc', 'abc', 0),
+(7, '0555555555', '123456', 'Boss', 'Boss', 2200);
 
 -- --------------------------------------------------------
 
@@ -117,7 +134,16 @@ CREATE TABLE `point_exchange` (
 --
 
 INSERT INTO `point_exchange` (`point`, `discount`) VALUES
-(0, 0);
+(0, 0),
+(20, 1),
+(50, 3),
+(75, 5),
+(100, 8),
+(150, 15),
+(300, 31),
+(500, 57),
+(800, 100),
+(1000, 150);
 
 -- --------------------------------------------------------
 
@@ -145,11 +171,11 @@ INSERT INTO `ticket` (`id`, `user`, `password`, `time`, `remaining`) VALUES
 (5, 'admin', '-', '08:00:00', '00:59:44'),
 (6, 'guest', '2041175501', '04:00:00', '04:00:00'),
 (7, 'admin', '-', '04:00:00', '00:00:00'),
-(8, 'admin', '-', '03:00:00', '00:59:49'),
-(9, 'admin', '-', '01:00:00', '00:58:57'),
+(8, 'admin', '-', '03:00:00', '00:59:42'),
+(9, 'admin', '-', '01:00:00', '00:58:28'),
 (10, 'admin', '-', '04:00:00', '00:00:00'),
 (11, '0123456789', '-', '01:00:00', '01:00:00'),
-(12, 'admin', '-', '02:00:00', '00:45:00'),
+(12, 'admin', '-', '02:00:00', '00:00:00'),
 (13, '0000000000', '-', '01:00:00', '01:00:00'),
 (14, 'guest18067', '0677230399', '05:00:00', '05:00:00'),
 (15, 'guest18090', '0903367953', '05:00:00', '05:00:00'),
@@ -162,7 +188,9 @@ INSERT INTO `ticket` (`id`, `user`, `password`, `time`, `remaining`) VALUES
 (22, 'guest6202220', '2220546689', '01:00:00', '00:00:00'),
 (23, 'guest6204774', '4774966494', '02:00:00', '01:59:51'),
 (24, 'guest6201417', '1417327482', '01:00:00', '00:00:00'),
-(25, 'admin', '-', '04:00:00', '00:00:00');
+(25, 'admin', '-', '04:00:00', '00:00:00'),
+(26, '0555555555', '-', '02:00:00', '01:58:21'),
+(27, 'guest6289980', '9980431810', '03:00:00', '02:59:51');
 
 -- --------------------------------------------------------
 
@@ -207,7 +235,9 @@ INSERT INTO `tickethistory` (`id`, `timestamp`, `phone`, `time`, `price`, `point
 (20, '2022-06-20 20:43:08', 'guestMMdd2', '01:00:00', 15, 1, 0),
 (21, '2022-06-20 20:49:06', 'guest62022', '01:00:00', 15, 1, 0),
 (22, '2022-06-20 20:49:17', 'guest62047', '02:00:00', 30, 2, 0),
-(23, '2022-06-20 20:51:03', 'guest62014', '01:00:00', 15, 1, 0);
+(23, '2022-06-20 20:51:03', 'guest62014', '01:00:00', 15, 1, 0),
+(24, '2022-06-28 00:07:26', '0555555555', '02:00:00', 0, 2, 300),
+(25, '2022-06-28 00:07:37', 'guest62899', '03:00:00', 45, 3, 0);
 
 --
 -- Indexes for dumped tables
@@ -257,31 +287,31 @@ ALTER TABLE `tickethistory`
 -- AUTO_INCREMENT for table `computer`
 --
 ALTER TABLE `computer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `loginhistory`
 --
 ALTER TABLE `loginhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tickethistory`
 --
 ALTER TABLE `tickethistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

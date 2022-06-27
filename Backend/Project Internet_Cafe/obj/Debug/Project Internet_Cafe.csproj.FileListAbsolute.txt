@@ -84,3 +84,4 @@ G:\My Drive\ED251007\CS Project 2\Backend\Project Internet_Cafe\obj\Debug\Projec
 G:\My Drive\ED251007\CS Project 2\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.csproj.CopyComplete
 G:\My Drive\ED251007\CS Project 2\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.exe
 G:\My Drive\ED251007\CS Project 2\Backend\Project Internet_Cafe\obj\Debug\Project Internet_Cafe.pdb
+G:\My Drive\ED251007\CS Project 2\Backend\Project Internet_Cafe\obj\Debug\Project_Internet_Cafe.computerhistory.resources

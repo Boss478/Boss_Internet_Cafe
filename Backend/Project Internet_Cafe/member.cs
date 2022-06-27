@@ -35,6 +35,18 @@ namespace Project_Internet_Cafe
 
             memberData.DataSource = ds.Tables[0].DefaultView;
         }
+        private void computerAvailableCheck_Click(object sender, EventArgs e)
+        {
+            computerForm computerForm = new computerForm();
+            computerForm.Show();
+            this.Close();
+        }
+        private void computerLoginHistory_Click(object sender, EventArgs e)
+        {
+            computerhistory computerHistory = new computerhistory();
+            computerHistory.Show();
+            this.Close();
+        }
 
         private bool checkAlpha(string str)
         {

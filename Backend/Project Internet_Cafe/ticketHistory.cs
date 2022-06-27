@@ -80,9 +80,9 @@ namespace Project_Internet_Cafe
         {
             loadTicketData("(all)");
             string[] nameList = getAllName().ToArray();
+            comboBox1.Items.Add("(all)");
             foreach (string name in nameList)
             {
-                comboBox1.Items.Add("(all)");
                 comboBox1.Items.Add(name.ToString());
                 comboBox1.AutoCompleteCustomSource.Add(name.ToString());
             }
@@ -123,6 +123,18 @@ namespace Project_Internet_Cafe
             pointUseText.Clear();
         }
 
+        private void computerAvailableCheck_Click(object sender, EventArgs e)
+        {
+            computerForm computerForm = new computerForm();
+            computerForm.Show();
+            this.Close();
+        }
+        private void computerLoginHistory_Click(object sender, EventArgs e)
+        {
+            computerhistory computerHistory = new computerhistory();
+            computerHistory.Show();
+            this.Close();
+        }
         private void showReceiptButton_Click(object sender, EventArgs e)
         {
             receipt receipt = new receipt();
@@ -142,13 +154,6 @@ namespace Project_Internet_Cafe
             this.Close();
         }
 
-        private void computer_menuStripClick(object sender, EventArgs e)
-        {
-            computerForm computerForm = new computerForm();
-            computerForm.Show();
-            this.Close();
-        }
-
         private void exit_menuStripClick(object sender, EventArgs e)
         {
             this.Close();
@@ -157,13 +162,18 @@ namespace Project_Internet_Cafe
         private void searchButton_Click(object sender, EventArgs e)
         {
             string[] text = comboBox1.Text.Split(' ');
-            if (text[2] == "(all)")
+            if (comboBox1.Text == "(all)")
             {
                 loadTicketData("(all)");
             } else
             {
                 loadTicketData(text[2]);
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,6 +63,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.ตรวจสอบเครองToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ประวตการใชงานToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ticketDataView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -121,15 +123,17 @@
             // 
             // ตรวจสอบคอมพวเตอรToolStripMenuItem
             // 
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ตรวจสอบเครองToolStripMenuItem,
+            this.ประวตการใชงานToolStripMenuItem});
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Name = "ตรวจสอบคอมพวเตอรToolStripMenuItem";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "ตรวจสอบคอมพิวเตอร์";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Click += new System.EventHandler(this.computer_menuStripClick);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "คอมพิวเตอร์";
             // 
             // สมาชกToolStripMenuItem
             // 
             this.สมาชกToolStripMenuItem.Name = "สมาชกToolStripMenuItem";
-            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.สมาชกToolStripMenuItem.Text = "สมาชิก";
             this.สมาชกToolStripMenuItem.Click += new System.EventHandler(this.member_menuStripClick);
             // 
@@ -138,20 +142,20 @@
             this.ตวชวโมงToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ตออายToolStripMenuItem});
             this.ตวชวโมงToolStripMenuItem.Name = "ตวชวโมงToolStripMenuItem";
-            this.ตวชวโมงToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ตวชวโมงToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ตวชวโมงToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ตออายToolStripMenuItem
             // 
             this.ตออายToolStripMenuItem.Name = "ตออายToolStripMenuItem";
-            this.ตออายToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.ตออายToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ตออายToolStripMenuItem.Text = "ซื้อตั๋ว";
             this.ตออายToolStripMenuItem.Click += new System.EventHandler(this.buyTicket_menuStripClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem
             // 
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem.Click += new System.EventHandler(this.exit_menuStripClick);
             // 
@@ -374,6 +378,7 @@
             this.label12.Size = new System.Drawing.Size(45, 13);
             this.label12.TabIndex = 22;
             this.label12.Text = "แสดง :";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // comboBox1
             // 
@@ -400,6 +405,20 @@
             this.searchButton.Text = "ค้นหา";
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // ตรวจสอบเครองToolStripMenuItem
+            // 
+            this.ตรวจสอบเครองToolStripMenuItem.Name = "ตรวจสอบเครองToolStripMenuItem";
+            this.ตรวจสอบเครองToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบเครองToolStripMenuItem.Text = "ตรวจสอบเครื่อง";
+            this.ตรวจสอบเครองToolStripMenuItem.Click += new System.EventHandler(this.computerAvailableCheck_Click);
+            // 
+            // ประวตการใชงานToolStripMenuItem
+            // 
+            this.ประวตการใชงานToolStripMenuItem.Name = "ประวตการใชงานToolStripMenuItem";
+            this.ประวตการใชงานToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการใชงานToolStripMenuItem.Text = "ประวัติการใช้งาน";
+            this.ประวตการใชงานToolStripMenuItem.Click += new System.EventHandler(this.computerLoginHistory_Click);
             // 
             // ticketHistory
             // 
@@ -481,5 +500,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.ToolStripMenuItem ตรวจสอบเครองToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ประวตการใชงานToolStripMenuItem;
     }
 }

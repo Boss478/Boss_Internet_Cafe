@@ -61,6 +61,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ticketDataView = new System.Windows.Forms.DataGridView();
+            this.ตรวจสอบเครองToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ประวตการใชงานToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketDataView)).BeginInit();
             this.SuspendLayout();
@@ -89,15 +91,17 @@
             // 
             // ตรวจสอบคอมพวเตอรToolStripMenuItem
             // 
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ตรวจสอบเครองToolStripMenuItem,
+            this.ประวตการใชงานToolStripMenuItem});
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Name = "ตรวจสอบคอมพวเตอรToolStripMenuItem";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "ตรวจสอบคอมพิวเตอร์";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Click += new System.EventHandler(this.computer_menuStripClick);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "คอมพิวเตอร์";
             // 
             // สมาชกToolStripMenuItem
             // 
             this.สมาชกToolStripMenuItem.Name = "สมาชกToolStripMenuItem";
-            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.สมาชกToolStripMenuItem.Text = "สมาชิก";
             this.สมาชกToolStripMenuItem.Click += new System.EventHandler(this.member_menuStripClick);
             // 
@@ -106,20 +110,20 @@
             this.ออกจากโปรแกรมToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ประวตการซอToolStripMenuItem});
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ประวตการซอToolStripMenuItem
             // 
             this.ประวตการซอToolStripMenuItem.Name = "ประวตการซอToolStripMenuItem";
-            this.ประวตการซอToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.ประวตการซอToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ประวตการซอToolStripMenuItem.Text = "ประวัติการซื้อ";
             this.ประวตการซอToolStripMenuItem.Click += new System.EventHandler(this.ticketHistory_menuStripClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem1
             // 
             this.ออกจากโปรแกรมToolStripMenuItem1.Name = "ออกจากโปรแกรมToolStripMenuItem1";
-            this.ออกจากโปรแกรมToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ออกจากโปรแกรมToolStripMenuItem1.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem1.Click += new System.EventHandler(this.exit_menuStripClick);
             // 
@@ -303,17 +307,6 @@
             this.usePointText.BackColor = System.Drawing.Color.White;
             this.usePointText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.usePointText.FormattingEnabled = true;
-            this.usePointText.Items.AddRange(new object[] {
-            "0",
-            "20",
-            "50",
-            "75",
-            "100",
-            "150",
-            "300",
-            "500",
-            "800",
-            "1000"});
             this.usePointText.Location = new System.Drawing.Point(366, 164);
             this.usePointText.Name = "usePointText";
             this.usePointText.Size = new System.Drawing.Size(94, 28);
@@ -391,6 +384,20 @@
             this.ticketDataView.Size = new System.Drawing.Size(250, 288);
             this.ticketDataView.TabIndex = 29;
             // 
+            // ตรวจสอบเครองToolStripMenuItem
+            // 
+            this.ตรวจสอบเครองToolStripMenuItem.Name = "ตรวจสอบเครองToolStripMenuItem";
+            this.ตรวจสอบเครองToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบเครองToolStripMenuItem.Text = "ตรวจสอบเครื่อง";
+            this.ตรวจสอบเครองToolStripMenuItem.Click += new System.EventHandler(this.computerAvailableCheck_Click);
+            // 
+            // ประวตการใชงานToolStripMenuItem
+            // 
+            this.ประวตการใชงานToolStripMenuItem.Name = "ประวตการใชงานToolStripMenuItem";
+            this.ประวตการใชงานToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการใชงานToolStripMenuItem.Text = "ประวัติการใช้งาน";
+            this.ประวตการใชงานToolStripMenuItem.Click += new System.EventHandler(this.computerLoginHistory_Click);
+            // 
             // ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,5 +472,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView ticketDataView;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ตรวจสอบเครองToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ประวตการใชงานToolStripMenuItem;
     }
 }

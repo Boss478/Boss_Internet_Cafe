@@ -200,7 +200,6 @@ namespace Project_Internet_Cafe_front
                 DateTime remainTimeCvt = dateNow.Date + remaining;
                 remainTime = remainTimeCvt.ToString("HH:mm:ss");
             }
-            Console.WriteLine(remainTime);
             string sql2 = $"UPDATE ticket SET remaining = '{remainTime}' WHERE id = '{ticketID}'";
             MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
             conn.Open();
@@ -211,19 +210,34 @@ namespace Project_Internet_Cafe_front
             string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string sql = $"UPDATE computer SET available = '1', ticket_id = '0', start_time = '{date}' WHERE id = '{loginForm.computerGlobal}'";
 
+
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
             conn.Close();
+        }
 
+        public static void editLoginHistory_logout()
+        {
+            MySqlConnection conn = loginForm.databaseConnection();
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            //string sql = $"UPDATE loginhistory SET logout_time = '{date}' WHERE id = '{ticketCheck.latestID}'";
+            string sql = $"UPDATE `loginhistory` SET `logout_time` = '{date}' WHERE `loginhistory`.`id` = '{ticketCheck.latestID}'";
 
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             updateTicket(ticketCheck.ticketID);
+            editLoginHistory_logout();
             MessageBox.Show("ออกจากระบบเรียบร้อยแล้ว", "Logged Out");
             loginForm.Show();
             this.Close();
@@ -245,6 +259,7 @@ namespace Project_Internet_Cafe_front
                 updateTicket(ticketCheck.ticketID);
                 ticketForm.Show();
                 this.Close();
+                editLoginHistory_logout();
             }
         }
 

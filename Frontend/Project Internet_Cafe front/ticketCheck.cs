@@ -16,6 +16,7 @@ namespace Project_Internet_Cafe_front
         MySqlConnection conn = loginForm.databaseConnection();
         public static int ticketID = 0;
         public static string dateGlobal = "00:00:00";
+        public static int latestID = 0;
 
         public ticketCheck()
         {
@@ -58,6 +59,35 @@ namespace Project_Internet_Cafe_front
             conn.Close();
         }
 
+        public static void addLoginHistory(int ticketID, string phone)
+        {
+            MySqlConnection conn = loginForm.databaseConnection();
+
+            string sql = "SELECT id FROM loginhistory";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            List<int> allID = new List<int>();
+            while (reader.Read())
+            {
+                allID.Add(reader.GetInt32("id"));
+            }
+
+            conn.Close();
+            int last = allID.Count;
+            ticketCheck.latestID = allID[last - 1] + 1;
+
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            sql = $"INSERT loginhistory (phone,login_time,computer_id,ticket_id) VALUES ('{phone}','{date}','{loginForm.computerGlobal}','{ticketID}')";
+
+            cmd = new MySqlCommand(sql, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
         private void useButton_Click(object sender, EventArgs e)
         {
             ticketDataView.CurrentRow.Selected = true;
@@ -72,6 +102,7 @@ namespace Project_Internet_Cafe_front
                 computerForm.Show();
                 this.Hide();
                 setComputerUnavailable(ticketID);
+                addLoginHistory(ticketID, loginForm.phoneGlobal);
             } else
             {
                 MessageBox.Show("กรุณาเลือกตั๋วของคุณ", "ERROR");

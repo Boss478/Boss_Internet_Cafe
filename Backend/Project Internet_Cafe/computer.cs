@@ -28,7 +28,6 @@ namespace Project_Internet_Cafe
 
         private void showComputer(DataGridView data)
         {
-            MySqlConnection conn = loginForm.databaseConnection();
             DataSet ds = new DataSet();
             conn.Open();
 
@@ -164,7 +163,13 @@ namespace Project_Internet_Cafe
             loginWin.Close();
             this.Close();
         }
-
+        
+        private void computerLoginHistory_Click(object sender, EventArgs e)
+        {
+            computerhistory computerHistory = new computerhistory();
+            computerHistory.Show();
+            this.Close();
+        }
         private void resetBox()
         {
             computerIDText.Text = "";

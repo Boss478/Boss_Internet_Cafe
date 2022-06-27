@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="computerhistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerhistory.Designer.cs">
+      <DependentUpon>computerhistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="receipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="computerhistory.resx">
+      <DependentUpon>computerhistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>

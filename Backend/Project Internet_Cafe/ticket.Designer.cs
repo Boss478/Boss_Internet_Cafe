@@ -35,6 +35,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ตรวจสอบเครองToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ประวตการใชงานToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.สมาชกToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ออกจากโปรแกรมToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ประวตการซอToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,8 +63,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ticketDataView = new System.Windows.Forms.DataGridView();
-            this.ตรวจสอบเครองToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ประวตการใชงานToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showReceiptButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketDataView)).BeginInit();
             this.SuspendLayout();
@@ -95,13 +96,27 @@
             this.ตรวจสอบเครองToolStripMenuItem,
             this.ประวตการใชงานToolStripMenuItem});
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Name = "ตรวจสอบคอมพวเตอรToolStripMenuItem";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "คอมพิวเตอร์";
+            // 
+            // ตรวจสอบเครองToolStripMenuItem
+            // 
+            this.ตรวจสอบเครองToolStripMenuItem.Name = "ตรวจสอบเครองToolStripMenuItem";
+            this.ตรวจสอบเครองToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.ตรวจสอบเครองToolStripMenuItem.Text = "ตรวจสอบเครื่อง";
+            this.ตรวจสอบเครองToolStripMenuItem.Click += new System.EventHandler(this.computerAvailableCheck_Click);
+            // 
+            // ประวตการใชงานToolStripMenuItem
+            // 
+            this.ประวตการใชงานToolStripMenuItem.Name = "ประวตการใชงานToolStripMenuItem";
+            this.ประวตการใชงานToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.ประวตการใชงานToolStripMenuItem.Text = "ประวัติการใช้งาน";
+            this.ประวตการใชงานToolStripMenuItem.Click += new System.EventHandler(this.computerLoginHistory_Click);
             // 
             // สมาชกToolStripMenuItem
             // 
             this.สมาชกToolStripMenuItem.Name = "สมาชกToolStripMenuItem";
-            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.สมาชกToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.สมาชกToolStripMenuItem.Text = "สมาชิก";
             this.สมาชกToolStripMenuItem.Click += new System.EventHandler(this.member_menuStripClick);
             // 
@@ -110,20 +125,20 @@
             this.ออกจากโปรแกรมToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ประวตการซอToolStripMenuItem});
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ประวตการซอToolStripMenuItem
             // 
             this.ประวตการซอToolStripMenuItem.Name = "ประวตการซอToolStripMenuItem";
-            this.ประวตการซอToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการซอToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ประวตการซอToolStripMenuItem.Text = "ประวัติการซื้อ";
             this.ประวตการซอToolStripMenuItem.Click += new System.EventHandler(this.ticketHistory_menuStripClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem1
             // 
             this.ออกจากโปรแกรมToolStripMenuItem1.Name = "ออกจากโปรแกรมToolStripMenuItem1";
-            this.ออกจากโปรแกรมToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.ออกจากโปรแกรมToolStripMenuItem1.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem1.Click += new System.EventHandler(this.exit_menuStripClick);
             // 
@@ -149,6 +164,7 @@
             this.userPhoneText.BackColor = System.Drawing.Color.White;
             this.userPhoneText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.userPhoneText.Location = new System.Drawing.Point(408, 40);
+            this.userPhoneText.MaxLength = 10;
             this.userPhoneText.Name = "userPhoneText";
             this.userPhoneText.Size = new System.Drawing.Size(167, 26);
             this.userPhoneText.TabIndex = 5;
@@ -254,7 +270,7 @@
             this.buyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.buyButton.Location = new System.Drawing.Point(288, 272);
             this.buyButton.Name = "buyButton";
-            this.buyButton.Size = new System.Drawing.Size(125, 44);
+            this.buyButton.Size = new System.Drawing.Size(72, 44);
             this.buyButton.TabIndex = 20;
             this.buyButton.Text = "ซื้อ";
             this.buyButton.UseVisualStyleBackColor = false;
@@ -264,9 +280,9 @@
             // 
             this.clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.clearButton.Location = new System.Drawing.Point(441, 272);
+            this.clearButton.Location = new System.Drawing.Point(370, 272);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(125, 44);
+            this.clearButton.Size = new System.Drawing.Size(90, 44);
             this.clearButton.TabIndex = 21;
             this.clearButton.Text = "ล้างข้อมูล";
             this.clearButton.UseVisualStyleBackColor = false;
@@ -384,19 +400,18 @@
             this.ticketDataView.Size = new System.Drawing.Size(250, 288);
             this.ticketDataView.TabIndex = 29;
             // 
-            // ตรวจสอบเครองToolStripMenuItem
+            // showReceiptButton
             // 
-            this.ตรวจสอบเครองToolStripMenuItem.Name = "ตรวจสอบเครองToolStripMenuItem";
-            this.ตรวจสอบเครองToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ตรวจสอบเครองToolStripMenuItem.Text = "ตรวจสอบเครื่อง";
-            this.ตรวจสอบเครองToolStripMenuItem.Click += new System.EventHandler(this.computerAvailableCheck_Click);
-            // 
-            // ประวตการใชงานToolStripMenuItem
-            // 
-            this.ประวตการใชงานToolStripMenuItem.Name = "ประวตการใชงานToolStripMenuItem";
-            this.ประวตการใชงานToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ประวตการใชงานToolStripMenuItem.Text = "ประวัติการใช้งาน";
-            this.ประวตการใชงานToolStripMenuItem.Click += new System.EventHandler(this.computerLoginHistory_Click);
+            this.showReceiptButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.showReceiptButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.showReceiptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.showReceiptButton.Location = new System.Drawing.Point(466, 272);
+            this.showReceiptButton.Name = "showReceiptButton";
+            this.showReceiptButton.Size = new System.Drawing.Size(111, 43);
+            this.showReceiptButton.TabIndex = 30;
+            this.showReceiptButton.Text = "แสดงใบเสร็จ";
+            this.showReceiptButton.UseVisualStyleBackColor = false;
+            this.showReceiptButton.Click += new System.EventHandler(this.showReceiptButton_Click);
             // 
             // ticket
             // 
@@ -404,6 +419,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(589, 327);
+            this.Controls.Add(this.showReceiptButton);
             this.Controls.Add(this.ticketDataView);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -474,5 +490,6 @@
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ตรวจสอบเครองToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ประวตการใชงานToolStripMenuItem;
+        private System.Windows.Forms.Button showReceiptButton;
     }
 }

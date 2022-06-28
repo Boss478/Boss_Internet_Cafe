@@ -34,6 +34,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ตรวจสอบเครองToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ประวตการใชงานToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ตรวจสอบประวตการซอตวToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ซอตวToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ประวตการซอToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +58,6 @@
             this.passwordText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.showPasswordCheck = new System.Windows.Forms.CheckBox();
-            this.ตรวจสอบเครองToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ประวตการใชงานToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memberData)).BeginInit();
             this.SuspendLayout();
@@ -89,8 +89,22 @@
             this.ตรวจสอบเครองToolStripMenuItem,
             this.ประวตการใชงานToolStripMenuItem});
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Name = "ตรวจสอบคอมพวเตอรToolStripMenuItem";
-            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ตรวจสอบคอมพวเตอรToolStripMenuItem.Text = "คอมพิวเตอร์";
+            // 
+            // ตรวจสอบเครองToolStripMenuItem
+            // 
+            this.ตรวจสอบเครองToolStripMenuItem.Name = "ตรวจสอบเครองToolStripMenuItem";
+            this.ตรวจสอบเครองToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.ตรวจสอบเครองToolStripMenuItem.Text = "ตรวจสอบเครื่อง";
+            this.ตรวจสอบเครองToolStripMenuItem.Click += new System.EventHandler(this.computerAvailableCheck_Click);
+            // 
+            // ประวตการใชงานToolStripMenuItem
+            // 
+            this.ประวตการใชงานToolStripMenuItem.Name = "ประวตการใชงานToolStripMenuItem";
+            this.ประวตการใชงานToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.ประวตการใชงานToolStripMenuItem.Text = "ประวัติการใช้งาน";
+            this.ประวตการใชงานToolStripMenuItem.Click += new System.EventHandler(this.computerLoginHistory_Click);
             // 
             // ตรวจสอบประวตการซอตวToolStripMenuItem
             // 
@@ -98,27 +112,27 @@
             this.ซอตวToolStripMenuItem,
             this.ประวตการซอToolStripMenuItem1});
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Name = "ตรวจสอบประวตการซอตวToolStripMenuItem";
-            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ตรวจสอบประวตการซอตวToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ตรวจสอบประวตการซอตวToolStripMenuItem.Text = "ตั๋วชั่วโมง";
             // 
             // ซอตวToolStripMenuItem
             // 
             this.ซอตวToolStripMenuItem.Name = "ซอตวToolStripMenuItem";
-            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ซอตวToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ซอตวToolStripMenuItem.Text = "ซื้อตั๋ว";
             this.ซอตวToolStripMenuItem.Click += new System.EventHandler(this.buyTicket_menuStripClick);
             // 
             // ประวตการซอToolStripMenuItem1
             // 
             this.ประวตการซอToolStripMenuItem1.Name = "ประวตการซอToolStripMenuItem1";
-            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ประวตการซอToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.ประวตการซอToolStripMenuItem1.Text = "ประวัติการซื้อ";
             this.ประวตการซอToolStripMenuItem1.Click += new System.EventHandler(this.ticketHistory_menuStripClick);
             // 
             // ออกจากโปรแกรมToolStripMenuItem
             // 
             this.ออกจากโปรแกรมToolStripMenuItem.Name = "ออกจากโปรแกรมToolStripMenuItem";
-            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ออกจากโปรแกรมToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ออกจากโปรแกรมToolStripMenuItem.Text = "ออกจากโปรแกรม";
             this.ออกจากโปรแกรมToolStripMenuItem.Click += new System.EventHandler(this.exit_menuStripClick);
             // 
@@ -205,6 +219,7 @@
             this.phoneText.BackColor = System.Drawing.Color.White;
             this.phoneText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.phoneText.Location = new System.Drawing.Point(421, 164);
+            this.phoneText.MaxLength = 10;
             this.phoneText.Name = "phoneText";
             this.phoneText.Size = new System.Drawing.Size(322, 26);
             this.phoneText.TabIndex = 7;
@@ -300,6 +315,7 @@
             this.passwordText.BackColor = System.Drawing.Color.White;
             this.passwordText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.passwordText.Location = new System.Drawing.Point(421, 229);
+            this.passwordText.MaxLength = 6;
             this.passwordText.Name = "passwordText";
             this.passwordText.Size = new System.Drawing.Size(322, 26);
             this.passwordText.TabIndex = 19;
@@ -325,20 +341,6 @@
             this.showPasswordCheck.Text = "แสดงรหัสผ่าน";
             this.showPasswordCheck.UseVisualStyleBackColor = true;
             this.showPasswordCheck.CheckStateChanged += new System.EventHandler(this.showPasswordCheck_CheckStateChanged);
-            // 
-            // ตรวจสอบเครองToolStripMenuItem
-            // 
-            this.ตรวจสอบเครองToolStripMenuItem.Name = "ตรวจสอบเครองToolStripMenuItem";
-            this.ตรวจสอบเครองToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ตรวจสอบเครองToolStripMenuItem.Text = "ตรวจสอบเครื่อง";
-            this.ตรวจสอบเครองToolStripMenuItem.Click += new System.EventHandler(this.computerAvailableCheck_Click);
-            // 
-            // ประวตการใชงานToolStripMenuItem
-            // 
-            this.ประวตการใชงานToolStripMenuItem.Name = "ประวตการใชงานToolStripMenuItem";
-            this.ประวตการใชงานToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ประวตการใชงานToolStripMenuItem.Text = "ประวัติการใช้งาน";
-            this.ประวตการใชงานToolStripMenuItem.Click += new System.EventHandler(this.computerLoginHistory_Click);
             // 
             // memberForm
             // 

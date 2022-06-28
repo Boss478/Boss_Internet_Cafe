@@ -226,6 +226,10 @@ namespace Project_Internet_Cafe
 
         private void timeText_TextChanged(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(timeText.Text) >= 21)
+            {
+                timeText.Text = "20";
+            }
             calculation();
         }
 
@@ -324,7 +328,7 @@ namespace Project_Internet_Cafe
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "ERROR");
+                MessageBox.Show("กรุณากรอกข้อมูลให้ถูกต้อง", "ERROR");
             }
             conn.Close();
         }
@@ -369,6 +373,15 @@ namespace Project_Internet_Cafe
         private void exit_menuStripClick(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void showReceiptButton_Click(object sender, EventArgs e)
+        {
+            int selectedRow = ticketDataView.CurrentCell.RowIndex;
+            int ticketID = Convert.ToInt32(ticketDataView.Rows[selectedRow].Cells["id"].FormattedValue.ToString());
+            ticketHistory.ticketIDGlobal = ticketID;
+            receipt receipt = new receipt();
+            receipt.Show();
         }
     }
 }

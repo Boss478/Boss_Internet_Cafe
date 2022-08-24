@@ -75,3 +75,28 @@ G:\My Drive\ED251007\CS Project 2\Frontend\Project Internet_Cafe front\obj\Debug
 G:\My Drive\ED251007\CS Project 2\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.csproj.CopyComplete
 G:\My Drive\ED251007\CS Project 2\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.exe
 G:\My Drive\ED251007\CS Project 2\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.pdb
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\Project Internet_Cafe front.exe.config
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\Project Internet_Cafe front.exe
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\Project Internet_Cafe front.pdb
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\Google.Protobuf.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\ZstdNet.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\System.Memory.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\System.Buffers.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\bin\Debug\MySql.Data.xml
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.csproj.AssemblyReference.cache
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.csproj.SuggestedBindingRedirects.cache
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.exe.config
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project_Internet_Cafe_front.computer.resources
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project_Internet_Cafe_front.ticketCheck.resources
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project_Internet_Cafe_front.loginForm.resources
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project_Internet_Cafe_front.Properties.Resources.resources
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.csproj.GenerateResource.cache
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.csproj.CoreCompileInputs.cache
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.csproj.CopyComplete
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.exe
+C:\Users\Boss478\Documents\GitHub\Boss_Internet_Cafe\Frontend\Project Internet_Cafe front\obj\Debug\Project Internet_Cafe front.pdb

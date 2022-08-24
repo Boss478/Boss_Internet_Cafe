@@ -62,16 +62,16 @@ namespace Project_Internet_Cafe
         {
             ticketHistory ticketHistory = new ticketHistory();
             int ticketID = ticketHistory.ticketIDGlobal;
-            string name = computerForm.getName(ticketID);
+            string[] name = computerForm.getName(ticketID).Split('-');
             string[] dataList = getData(ticketID);
 
             ticketIDLabel.Text = "Ticket ID : " + ticketID.ToString();
-            if (name.ToString().Contains("guest"))
+            if (name[1].ToString().Contains("guest"))
             {
-                nameLabel.Text = "ชื่อผู้ซื้อ : guest";
+                nameLabel.Text = "ชื่อผู้ซื้อ : " + name[1].ToString();
             } else
             {
-                nameLabel.Text = "ชื่อผู้ซื้อ : " + name.ToString();
+                nameLabel.Text = "ชื่อผู้ซื้อ : " + name[0].ToString();
             }
             timeLabel.Text = "เวลา : " + Convert.ToDateTime(dataList[3]).ToString("dd-MM-yyyy HH:mm:ss");
             hourLabel.Text = "จำนวนชั่วโมง \n" + Convert.ToDateTime(dataList[2]).Hour + " ชั่วโมง";
